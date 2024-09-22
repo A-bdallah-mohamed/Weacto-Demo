@@ -1,0 +1,394 @@
+.website1container{
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+max-width: 100vw;
+  width: auto;
+  overflow-x: hidden;
+  flex-direction: column;
+}
+.container{
+max-width: 100vw;
+}
+.website1{
+max-width: 100vw;
+max-width: 100%;
+  width: 1380px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.homepage{
+display: flex;
+position: relative;
+overflow: hidden;
+flex-direction: column;
+gap: 20px;
+max-width: 97vw;
+max-width: 98%;
+width: 1380px;
+background-color: rgb(226, 226, 226);
+height: 705px;
+border: 10px solid white;
+border-radius: 98px;
+z-index: 10;
+}
+.seconddiv{
+width: 1380px;
+height: 400px;
+max-width: 100vw;
+z-index: 9;
+background-color: rgb(255, 255, 255);
+position: relative;
+border-radius: 98px;
+margin-top: -100px;
+
+}
+.thirddiv{
+position: relative;
+align-items: center;
+justify-content: space-between;
+max-width: 97vw;
+height: auto;
+width: 100%;
+background-color: rgb(226, 226, 226);
+height: 700px;
+z-index: 8;
+margin-top: -100px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.thirdcomponents{
+  width: 100%;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 35px;
+}
+.fourthdiv{
+  position: relative;
+  margin-top: -100px;
+border-radius: 98px;
+max-width: 100vw;
+  height: 500px;
+  width: 1380px;
+  z-index: 9;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+header{
+max-width: 100%;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px;
+  font-weight: 500;
+}
+span{
+  font-weight: lighter;
+}
+header div{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+header button{
+padding: 0 20px;
+  border: 0;
+  background-color: white;
+  border-radius: 50px;
+  height: 35px;
+  font-weight:bold;
+  transition: 1s ease all;
+  border: 1px solid white;
+}
+header button:hover{
+  transition: 0.5s ease all;
+  background-color: rgb(226, 226, 226);
+  padding: 0 25px;
+  height: 38px;
+  border: 1px solid black;
+}
+ul{
+  display: flex;
+  list-style: none;
+  gap: 10px;
+}
+.image{
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+  border-radius: 100%;
+  border: 3px solid white;
+}
+.mainsection{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.imagecontainer{
+  position: relative;
+}
+.textonimage{
+  position: absolute;
+  width: auto;
+  height: 35px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  border-radius: 30px;
+  font-weight: 500;
+  top: 30px;
+  transform: rotateZ(-5deg);
+  left: 70px;
+  white-space: nowrap;
+}
+h1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: "Sedan", serif;
+  font-weight: bolder;
+  font-size: 40px;
+}
+.button2lines{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  gap: 20px;
+}
+.button2lines::before{
+  content: "";
+  border: 0.1px solid rgb(152, 152, 152);
+  width: 30%;
+}
+.button2lines::after{
+  content: "";
+  border: 0.1px solid rgb(152, 152, 152);
+  width: 30%;
+
+}
+.button2lines button{
+  padding: 0 40px;
+  border: 0;
+  background-color: white;
+  height: 40px;
+  border-radius: 100px;
+  transform: rotate(-10deg);
+  font-weight: bold;
+  transition: 0.5s ease all;
+  cursor: auto;
+}
+.button2lines button:hover{
+  transform: rotate(0deg);
+  transition: 0.5s ease all;
+}
+.mainsection button{
+  background-color: black;
+  color: white;
+  border: 0;
+  width: auto;
+  white-space: nowrap;
+  padding: 0 50px;
+  height: 60px;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.5s ease;
+}
+.mainsection button:hover{
+  padding: 0 55px;
+  height: 65px;
+  transition: all 0.5s ease;
+  background-color: rgb(30, 30, 30);
+}
+li{
+  cursor: pointer;
+  transition: all 0.5s ease;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+}
+li:after{
+content: "";
+border: 0px solid black;
+width: 0%;
+transition: all 0.5s ease;
+margin-top: 2px;
+}
+li:hover::after{
+  border: 1px solid black;
+width: 100%;
+transition: all 0.5s ease;
+}
+button{
+  cursor: pointer;
+}
+.seconddivcomponentscontainer{
+  width: 100%;
+  height: 300px;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo{
+height: auto;
+max-width: 180px;
+}
+.logoscontainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  column-gap: 20px;
+flex-wrap: wrap;
+}
+.departments{
+  display: flex;
+  width:70%;
+  align-items: center;
+  justify-content: space-between;
+  height: auto;
+}
+.deplogo{
+  font-size: 30px;
+}
+.department{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+h5,p{
+  margin: 0;
+}
+.handshake{
+  font-size: 80px;
+  background-color: rgb(223, 223, 223);
+  padding: 20px 20px;
+  border-radius: 100%;
+}
+.buttonscontainer{
+  display: flex;
+  gap: 20px;
+}
+.button2:hover{
+  background-color: rgb(139, 139, 139);
+  transition: 0.5s ease all;
+}
+.button2{
+  background-color: white;
+  transition: 0.5s ease all;
+}
+.button1:hover{
+  background-color: rgb(123, 123, 123);
+  transition: 0.5s ease all;
+}
+.button1{
+  background-color: rgb(0, 0, 0);
+  color: white;
+  transition: 0.5s ease all;
+}
+.buttonscontainer button{
+  padding: 10px 25px;
+  border: 1px solid black;
+  border-radius: 100px;
+  font-weight: bold;
+}
+.fourthfirst{
+  margin-top: -100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.fourthsecond{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 20px;
+  width: 90%;
+  font-weight: 500;
+}
+.goback{
+display: flex;
+align-items: center;
+justify-content: center;
+  margin-top: 10px;
+width: 100%;
+  margin-bottom: 10px;
+}
+.iconntext{
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 97vw;
+  max-width: 1380px;
+}
+.backicon:hover{
+  cursor: pointer;
+}
+.backicon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.backicon:hover{
+  transform: translateX(-20px);
+  transition: all ease 0.5s;
+}
+.backicon:hover .backicon2{
+  transform: translateX(-25px);
+  transition: all ease 0.5s;
+}
+.backicon2{
+  transition: all ease 0.5s;
+}
+p{
+  transition: all ease 0.5s;
+  z-index: 10;
+}
+.iconntext:hover p{
+  transform: rotate(3deg);
+  transition: all ease 0.5s;
+}
+.backicon{
+  transition: all ease 0.5s;
+}
+.fuck{
+  display: flex;
+  flex-direction: column;
+}
+.fuck div label{
+width: 140px;
+text-align: left;
+}
+.fuck div{
+  display: flex;
+}
