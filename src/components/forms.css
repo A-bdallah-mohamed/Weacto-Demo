@@ -1,6 +1,9 @@
+*{
+    white-space: nowrap;
+}
 .formtext{
    position: absolute;
-    padding: 25px 25px;
+    padding: 25px;
     border-radius: 10px;
 overflow: hidden;
     background-color: rgb(255, 255, 255);
@@ -19,6 +22,11 @@ overflow: auto;
 overflow-y: auto;
 max-height: 1000;    
 opacity: 0;
+
+}
+.fk{
+    display: flex;
+    flex-direction: row-reverse;
 }
 .formshown{
     transition: all ease 0.5s;
@@ -34,6 +42,7 @@ opacity: 0;
 display: flex;
 align-items: center;
 justify-content: center;
+padding: 25px 25px 0px 25px;
 }
 .inputnbutton{
     gap: 10px;
@@ -47,14 +56,17 @@ justify-content: center;
     border: none;
     background-color: rgb(233, 233, 233);
     padding: 5px 0;
+
 }
 select,option {
  
     outline: none;  
     cursor: pointer;
   }
+  .notallowed{
+    cursor: not-allowed;
+  }
   input[type="checkbox"] {
-margin: 4px 0 0 5px;
     cursor: pointer;
   }
   input[type="color"] {
@@ -66,6 +78,10 @@ margin: 4px 0 0 5px;
 }
 .inputnbutton input::placeholder{
 padding-left: 5px;
+}
+.maintextinput{
+    padding: 10px 0px;
+
 }
  button{
     border: 1px solid rgb(194, 194, 194);
@@ -109,11 +125,21 @@ transition: all ease 0.3s ;
 select{
     width: 15%;
     display: flex;
+    padding: 100%;
     align-items: center;
     justify-content: center;
     border: 1px solid rgb(145, 155, 199);
     border-radius: 5px;
     padding: 5px 0;
+    display: flex;
+    flex-direction: column;
+    border: none;
+    background-color: rgb(221, 221, 221);
+    
+}
+option{
+    background-color: rgb(255, 255, 255);
+
 }
 .fontsizeselect{
     width: 100%;
@@ -123,30 +149,60 @@ select{
     gap: 5px;
 
 }
+
+
 label{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+width: 100%;
+gap: 5px;
+}
+label select{
+   width: 40px;
+}
+input:disabled,
+select:disabled {
+    cursor: not-allowed;
+    background-color: rgb(152, 152, 152);
 }
 .checkboxes{
     display: flex;
     justify-content: space-between;
     width: 100%;
+    gap: 5px;
 }
 .submitbutton{
-    background-color: rgb(228, 228, 228);
-
+    background-color: rgb(0, 75, 236);
+    margin: 0px 0px 25px 0px;
+    color: rgb(255, 255, 255);
 }
 button:hover{
-    background-color: rgb(0, 81, 255);
+    background-color: rgb(37, 106, 255);
     transition: 0.5s ease all;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
 }
 button:disabled:hover{
     background-color: rgb(0, 0, 0);
     transition: 0.5s ease all;
     color: rgb(255, 255, 255);
+}
+.border{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.bordertitle{
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    text-decoration: underline;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.border select{
+    width: 70px;
 }
 .container{
     display: flex;
@@ -158,6 +214,7 @@ button:disabled:hover{
     display: flex;
     justify-content: center;
     gap: 16px;
+white-space: nowrap;
 }
 .buttonoptions select{
     width: 70px;

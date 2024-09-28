@@ -1,11 +1,17 @@
 import React , { useEffect, useState } from "react";
 import Form from "../components/Form";
 import * as FaIcons from 'react-icons/fa'
-const UseChangetext = (textt,setvisible,icon) =>{
+import { isVisible } from "@testing-library/user-event/dist/utils";
+const UseChangeButton = (textt,setvisible,icon) =>{
 
 // reutrn outline style
 // change react icons
 
+
+// submit only for changing the text of the component ,,,,,,, other features are changing immediately     -important
+
+
+const test = "this is the test text"
     const [text,    settext ] = useState(textt)
     const [newtext,setnewtext] = useState("")
     const [prevtext,setprevtext] = useState([textt])
@@ -35,7 +41,24 @@ const [boldchecked,setboldchecked] = useState({boolean:false,css:"bold"})
 const [italicchecked,setitalicchecked] = useState({boolean:false,css:"italic"})
 const [underlinechecked,setunderlinechecked] = useState({boolean:false,css:"underline"})
 const [textstyle,settextstyle] = useState({bold:false,italic:false,underline:false})
+const [bckgcolor,setbckgcolor] = useState("#ffffff")
+const [backgroundcolor,setbackgroundcolor] = useState(bckgcolor)
+
+
+
+const [initialbordercolor,setinitialbordercolor] = useState("black")
+const [bordercolor,setbordercolor] = useState(initialbordercolor)
+
+
+const [initialbordersize,setinitialbordersize] = useState("1px")
+const [bordersize,setbordersize] = useState(initialbordersize)
+const [initialborder,setinitialborder] = useState(`${bordersize} solid ${bordercolor}`)
+const [border,setborder] = useState(initialborder)
+const [borderdisplayed,setborderdisplayed] = useState(false)
 useEffect(()=>{
+    if(borderdisplayed === true){
+        setborder("none")
+    }
 setnewarray([...prevtext])
 settext(prevtext[itemid])
     setdisableredobutton(itemid < prevtext.length-1)
@@ -43,9 +66,19 @@ settext(prevtext[itemid])
     setdisabelundo(itemid > 0)
     setdisabelundo(itemid == 0)
 },[prevtext,itemid,text,colorcode,boldchecked,textstyle,italicchecked])
-
-
-
+const borderdisplaychange = (e) =>{
+    setborderdisplayed(e.target.checked)
+}
+const bckgcolorchange = (e) =>{
+    setbckgcolor(e.target.value)
+}
+const bordercolorchange = (e) => {
+    setinitialbordercolor(e.target.value)
+    }
+const bordersizechange = (e) => {
+        e.preventDefault();
+setinitialbordersize(e.target.value)
+}
 const boldhandlechange = (e) => {
     settextstyle(prevState => ({
         ...prevState,  
@@ -64,8 +97,28 @@ const underlinehandlechange = (e) => {
         underline: e.target.checked     
       }));
 }
+useEffect(()=>{
+    console.log(initialbordercolor)
+    console.log(bordercolor)
+    console.log(initialbordersize)
+    console.log(bordersize)
+    console.log(border)
+    console.log(borderdisplayed)
+    if(!borderdisplayed){
+        setborder(bordersize + ' solid ' + bordercolor)
+    }
 
+    else if(borderdisplayed){
+        setborder('none')
+    }
+},[initialbordercolor,bordercolor,bordersize,initialbordersize,border,borderdisplayed])
     const handlesubmit = (e) => {
+        
+  
+        setbordercolor(initialbordercolor)
+        console.log(bordercolor)
+        setbordersize(initialbordersize)
+        console.log(bordersize)
 
         setboldchecked(prevState => ({
             ...prevState,  
@@ -94,6 +147,8 @@ if(!newtext == ""){
 setColor(colorcode)
         setvisible(false)
         setfontsize(newfont)
+        setbackgroundcolor(bckgcolor)
+  
     }
 
 
@@ -103,9 +158,7 @@ const undo =(e)=>{
         const lessid = itemid - 1
         setitemid(lessid)
     }
-else{
-console.log("cant undo")
-}
+
     setvisible(false)
 }
 
@@ -128,7 +181,9 @@ const redo = (e) => {
         undo, redo ,disableredobutton ,disabelundo,style ,fontsize,handlefontchange,icon,Color,colorhandlechange,colorcode,
         boldhandlechange,
 italichandlechange,textstyle,
-underlinehandlechange,boldchecked,italicchecked,underlinechecked,newfont
+underlinehandlechange,boldchecked,italicchecked,underlinechecked,newfont,test,bckgcolor,
+backgroundcolor,borderdisplaychange,border,initialbordercolor,
+bckgcolorchange,borderdisplayed,bordersizechange,bordercolorchange
       };
 }
-export default UseChangetext;
+export default UseChangeButton;

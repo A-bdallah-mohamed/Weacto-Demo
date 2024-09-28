@@ -10,17 +10,24 @@ import { Link } from 'react-router-dom';
 import { useRef , useState , useEffect } from 'react';
 import UseChangetext from '../../custom hooks/UseChangetext';
 import Form from '../../components/Form';
-
+import UseChangeButton from '../../custom hooks/UseChangeButton';
 export default function Website1({editable , seteditable}) {
-
+const darkencolor = (color) => {
+color.filter ='brightness(0.8)'
+}
   const textstylecomponent = (changetexthook) => {
-    return {
+    let styles = {
       fontWeight : changetexthook.boldchecked.boolean ? 'bold' : 'none'
       ,fontStyle :changetexthook.italicchecked.boolean ? 'italic' : ''
       ,textDecoration : changetexthook.underlinechecked.boolean ? 'underline' : 'none'
       ,fontSize : `${changetexthook.fontsize}px`
       ,color: changetexthook.Color
     }
+    if (changetexthook.backgroundcolor){
+      styles.backgroundColor = changetexthook.backgroundcolor;
+      styles.border = `${changetexthook.border}`
+    }
+    return styles
   }
 const [position,setposition] = useState({x:0,y:0})
 const [formvisible,setformvisible] = useState(false)
@@ -45,7 +52,13 @@ const itemTexts = items.map((item) => ({
 const functions = [];
 for(let i=0 ; i<items.length ; i++){
 const item = items[i]
-functions[i] = UseChangetext(item.text,setformvisible,item.icon)
+if(item.datatype === "text" ){
+  functions[i] = UseChangetext(item.text,setformvisible,item.icon)
+}
+else if(item.datatype === "button"){
+ 
+  functions[i] = UseChangeButton(item.text,setformvisible,item.icon)
+}
 }
 const styles = [];
 for(let i=0 ; i<items.length ; i++){
@@ -64,7 +77,7 @@ styles[i] = textstylecomponent(functions[i])
   <p onClick={(e)=>handleclick(e,0)} style={styles[0]}>{functions[0].text}</p>
 
   {editable && ( <button>Copy</button>) }
-  <button onClick={(e)=>handleclick(e,1)} style={styles[1]}>{functions[1].text}</button>
+  <button onClick={(e)=>handleclick(e,1)} style={styles[1]} className='headerbutton' >{functions[1].text}</button>
 </div>
 <ul>
   <li>LinkedIN</li>
