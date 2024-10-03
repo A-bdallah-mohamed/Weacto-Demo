@@ -12,11 +12,19 @@ import UseChangetext from '../../custom hooks/UseChangetext';
 import Form from '../../components/Form';
 import UseChangeButton from '../../custom hooks/UseChangeButton';
 export default function Website1({editable , seteditable}) {
+
+
+// Add the jsx lines into the "items" array
+// If possible put the custom hook also inside the "items" array 
+// If not Create a function returns the jsx line asigned to the custom hook 
+
+
 const darkencolor = (color) => {
 color.filter ='brightness(0.8)'
 }
   const textstylecomponent = (changetexthook) => {
     let styles = {
+cursor: 'cell',
       fontWeight : changetexthook.boldchecked.boolean ? 'bold' : 'none'
       ,fontStyle :changetexthook.italicchecked.boolean ? 'italic' : ''
       ,textDecoration : changetexthook.underlinechecked.boolean ? 'underline' : 'none'
@@ -30,9 +38,11 @@ color.filter ='brightness(0.8)'
     return styles
   }
 const [position,setposition] = useState({x:0,y:0})
+
+
 const [formvisible,setformvisible] = useState(false)
 const items = [
-  {text:"OtherWebsiteName.com",datatype:"text"},
+  {text:"WebsiteLink.com",datatype:"text"},
   {text:"work",datatype:"button"},
   {text:"Copy",datatype:"button"}
 ]
@@ -68,7 +78,7 @@ styles[i] = textstylecomponent(functions[i])
   return (
     
 <div className='website1container'>
-{(formvisible && editable)  && <Form newtext={functions[selectedItemId]} position={position} formvisible={formvisible} setformvisible={setformvisible}  datatype={itemTexts[selectedItemId].datatype} editable={editable}/>}
+{(formvisible && editable)  && <Form newtext={functions[selectedItemId]} position={position} setposition={setposition} formvisible={formvisible} setformvisible={setformvisible}  datatype={itemTexts[selectedItemId].datatype} editable={editable}/>}
 
     <div className='website1'>
     <div className='homepage'>
@@ -77,7 +87,7 @@ styles[i] = textstylecomponent(functions[i])
   <p onClick={(e)=>handleclick(e,0)} style={styles[0]}>{functions[0].text}</p>
 
   {editable && ( <button>Copy</button>) }
-  <button onClick={(e)=>handleclick(e,1)} style={styles[1]} className='headerbutton' >{functions[1].text}</button>
+  <button onClick={(e)=>handleclick(e,1)} style={styles[1]}>{functions[1].text}</button>
 </div>
 <ul>
   <li>LinkedIN</li>

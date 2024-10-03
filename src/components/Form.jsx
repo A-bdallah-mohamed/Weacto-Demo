@@ -10,39 +10,92 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
+
+
+
+
+// Add dragin feature             -important !!
+
+
 export default function Form({
-  newtext, position, formvisible, setformvisible, datatype, editable, setselectedItemId
+  newtext, position,setposition,formvisible, setformvisible, datatype, editable, setselectedItemId
 }) {
+
   const fontsizes = [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30];
 
   const handleSubmit = (e) => {
     e.preventDefault();
     newtext.handlesubmit();
   };
-  const [form,isformshown] = UseIntersection()
+
+ const [form,isformshown] = UseIntersection()
 
   const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
-  return (
-    <>
+const [dragging , setdragging] = useState(false)
+
+const [dragOffset,setdragOffset] = useState({x:0,y:0})
+
+const handleonmousedown = (e) => {
+  const offsetX = e.nativeEvent.offsetX;
+  const offsetY = e.nativeEvent.offsetY;
+  setdragOffset({
+    x:offsetX,
+    y:offsetY
+  })
+  console.log(dragOffset)
+}
+  const  mousedownhandle = (e) => {
+    const formRect = e.currentTarget.getBoundingClientRect();
+    const offsetX = e.nativeEvent.offsetX;
+    const offset = e.clientX - e.nativeEvent.offsetX
+
+    setposition({x:e.clientX -  dragOffset.x , y : (e.clientY - dragOffset.y) + 10})
+    const offsetY = e.nativeEvent.offsetY;
+
+
+setdragging(true)
+  } 
+
+  const  mousemovehandle = (e) => {
+    console.log("moving")
+    setdragging(true)
+    setposition({x:e.clientX -  dragOffset.x , y : (e.clientY- dragOffset.y) + 10})
+  } 
   
-   <FormControl ref={form} className={`formtext ${isformshown && 'formshown'}`} style={{ left: position.x, top: position.y, position: 'absolute'}} >
+  const  mouseuphandle = (e) => {
+    console.log("ended moving")
+    setposition({x:e.clientX -  dragOffset.x , y : e.clientY- dragOffset.y})
+    setdragging(false)
+  } 
+  useEffect(()=> {
+console.log(position)
+  },[position])
+  return (
+
+  
+   <FormControl ref={form} className={`formtext ${isformshown && dragging ? 'formshown' : 'formshown'}`} style={{ left: position.x, top: position.y, position: 'absolute' , cursor: dragging ? "grabbing" : "grabbing"}}>
    
       <div onClick={() => setformvisible(false)} className='closelogo'>X</div>
       <div>
         
 
       </div>
+      <div className='dragabble' draggable={true} onMouseDown={(e)=>handleonmousedown(e)} onDragCapture={(e)=>mousedownhandle(e)} onDrag={(e)=>mousemovehandle(e)} onDragEnd={(e)=>mouseuphandle(e)}/>
+
       { datatype === "button" ? <div className='fakecontent'>
       <label htmlFor='text' style={{ marginBottom: "15px" }}>
         "{newtext.text}" {datatype}
       </label>
       <div className='container'>
       <div className='inputnbutton'>
-        <label htmlFor='text'> Label
+        <label htmlFor='text'> Text
         <input onChange={(e) => newtext.handlechange(e)}  placeholder={newtext.text} id='text' className='maintextinput'/></label>
         <button onClick={newtext.undo} disabled={newtext.disabelundo} >Undo</button>
         <button onClick={newtext.redo} disabled={newtext.disableredobutton}> Redo </button>
       </div>
+      <button type='button' onClick={handleSubmit} className='submitbutton'>Save <FaArrowRight />
+</button>
+
       <div className='fontsizeselect'>
         <label htmlFor='fontsize'>Font Size :         <select
 
@@ -107,10 +160,14 @@ onChange={(e) => newtext.handlefontchange(e)}>
       </label>
       <div className='container'>
       <div className='inputnbutton'>
-        <input onChange={(e) => newtext.handlechange(e)}  placeholder={newtext.text} id='text' />
+      <label htmlFor='text'> Text
+      <input onChange={(e) => newtext.handlechange(e)}  placeholder={newtext.text} id='text' className='maintextinput'/></label>
         <button onClick={newtext.undo} disabled={newtext.disabelundo} >Undo</button>
         <button onClick={newtext.redo} disabled={newtext.disableredobutton}> Redo </button>
       </div>
+      <button type='button' onClick={handleSubmit} className='submitbutton'>Save <FaArrowRight />
+</button>
+
       <div className='fontsizeselect'>
         <label htmlFor='fontsize'>Font Size :         <select
 
@@ -150,12 +207,10 @@ onChange={(e) => newtext.handlefontchange(e)}>
 
 
 }
-<button type='button' onClick={handleSubmit} className='submitbutton'>Save <FaArrowRight />
-</button>
 
 </FormControl>
     
 
-    </>
+
   );
 }

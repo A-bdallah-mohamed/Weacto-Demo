@@ -14,7 +14,7 @@ overflow: hidden;
     box-shadow: 0px 2px 25px 0px rgba(0, 0, 0, 0.5);
     flex-direction: column;
     overflow: hidden;
-    transition: all ease 0.5s;
+    pointer-events: all;
 display: flex;
 align-items: center;
 justify-content: center;
@@ -24,12 +24,23 @@ max-height: 1000;
 opacity: 0;
 
 }
+
+.graybackground{
+    min-width: 100vw;
+min-height: 100vh;
+    position: absolute;
+    top: 0;
+    pointer-events: none;
+    }
 .fk{
     display: flex;
     flex-direction: row-reverse;
 }
+.formshowndrag{
+    opacity: 1;
+}
 .formshown{
-    transition: all ease 0.5s;
+transition: all 0.5s ease;
     opacity: 1;
 }
 .fakecontent{
@@ -38,11 +49,11 @@ opacity: 0;
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    transition: all ease 0.5s;
+
 display: flex;
 align-items: center;
 justify-content: center;
-padding: 25px 25px 0px 25px;
+padding: 0px 25px 25px 25px;
 }
 .inputnbutton{
     gap: 10px;
@@ -51,6 +62,7 @@ padding: 25px 25px 0px 25px;
 .inputnbutton button{
     background-color: rgb(228, 228, 228);
 }
+
  input{
     border-radius: 5px;
     border: none;
@@ -177,7 +189,7 @@ select:disabled {
     margin: 0px 0px 25px 0px;
     color: rgb(255, 255, 255);
 }
-button:hover{
+.submitbutton:hover{
     background-color: rgb(37, 106, 255);
     transition: 0.5s ease all;
     color: rgb(0, 0, 0);
@@ -185,7 +197,7 @@ button:hover{
 button:disabled:hover{
     background-color: rgb(0, 0, 0);
     transition: 0.5s ease all;
-    color: rgb(255, 255, 255);
+    color: rgb(255, 255, 255);  
 }
 .border{
     display: flex;
@@ -218,4 +230,9 @@ white-space: nowrap;
 }
 .buttonoptions select{
     width: 70px;
+}
+.dragabble{
+    width: 100%;
+    height: 25px;
+    cursor: grab;
 }
