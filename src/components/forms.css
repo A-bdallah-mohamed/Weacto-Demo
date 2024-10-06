@@ -91,6 +91,9 @@ select,option {
 .inputnbutton input::placeholder{
 padding-left: 5px;
 }
+.inputnbutton input{
+    padding-left: 5px;
+    }
 .maintextinput{
     padding: 10px 0px;
 
@@ -188,6 +191,18 @@ select:disabled {
     background-color: rgb(0, 75, 236);
     margin: 0px 0px 25px 0px;
     color: rgb(255, 255, 255);
+width: 100%;
+}
+.deletebutton{
+    width: 100%;
+    border: none;
+    color: white;
+    background-color: #da2d2a;
+    transition: all ease 0.5s;
+}
+.deletebutton:hover{
+    background-color: #e05553;
+    transition: all ease 0.5s;
 }
 .submitbutton:hover{
     background-color: rgb(37, 106, 255);
@@ -204,6 +219,7 @@ button:disabled:hover{
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    gap: 15px;
 }
 .bordertitle{
     width: 100%;
@@ -220,7 +236,7 @@ button:disabled:hover{
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-left: 5px;
+    width: 100%;
 }
 .buttonoptions{
     display: flex;

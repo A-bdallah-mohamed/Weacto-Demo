@@ -17,158 +17,147 @@ const test = "this is the test text"
     const [itemid,setitemid] = useState(0)
     const [disableredobutton,setdisableredobutton] = useState(true)
     const [disabelundo,setdisabelundo] = useState(true)
+
+    const undo =(e)=>{
+        e.preventDefault();
+        if (itemid > 0){
+            const lessid = itemid - 1
+            setitemid(lessid)
+        }
+    
+        setvisible(false)
+    }
+    
+    const redo = (e) => {
+        e.preventDefault();
+        if(itemid < prevtext.length-1){
+            setitemid(itemid+1)
+        }
+        setvisible(false)
+    }
+    
+
+
+
+
     const [newarray,setnewarray] = useState([])
-    const [fontsize,setfontsize] = useState(16)
-    const [newfont,setnewfont] = useState(fontsize)
-    const [colorcode,setcolorcode] = useState("#000000")
-    const [Color,setColor] = useState(colorcode)
-    const [boldchecked,setboldchecked] = useState({boolean:false,css:"bold"})
-    const [italicchecked,setitalicchecked] = useState({boolean:false,css:"italic"})
-    const [underlinechecked,setunderlinechecked] = useState({boolean:false,css:"underline"})
-    const [textstyle,settextstyle] = useState({bold:false,italic:false,underline:false})
-    const [bckgcolor,setbckgcolor] = useState("#ffffff")
-    const [backgroundcolor,setbackgroundcolor] = useState(bckgcolor)
-    const [initialbordercolor,setinitialbordercolor] = useState("black")
-    const [bordercolor,setbordercolor] = useState(initialbordercolor)
-    const [initialbordersize,setinitialbordersize] = useState("1px")
-    const [bordersize,setbordersize] = useState(initialbordersize)
-    const [initialborder,setinitialborder] = useState(`${bordersize} solid ${bordercolor}`)
-    const [border,setborder] = useState(initialborder)
-    const [borderdisplayed,setborderdisplayed] = useState(true)
-
-
-
     const handlechange = (e)  => {
         setnewtext(e.target.value)
     }
+    useEffect(()=>{
 
+        if(borderdisplayed === true){
+            setborder("none")
+        }
+    
+    setnewarray([...prevtext])
+    settext(prevtext[itemid])
+    setdisableredobutton(itemid < prevtext.length-1)
+    setdisableredobutton(itemid == prevtext.length-1)
+    setdisabelundo(itemid > 0)
+    setdisabelundo(itemid == 0)
+     },[prevtext,itemid,text])
+    
+
+
+    const [fontsize,setfontsize] = useState(16)
     const handlefontchange = (e) => {
-         e.preventDefault()
-        setnewfont(e.target.value)
-    }
+        e.preventDefault()
+        setfontsize(e.target.value)
+   }
+
+    const [Color,setColor] = useState("#000000")
+
     const colorhandlechange = (e) =>{
-         e.preventDefault();
-         setcolorcode(e.target.value)
-    }
-    const borderdisplaychange = (e) =>{
-        setborderdisplayed(e.target.checked)
-    }
-    
-    const bckgcolorchange = (e) =>{
-        setbckgcolor(e.target.value)
-    }
-    
-    const bordercolorchange = (e) => {
-        setinitialbordercolor(e.target.value)
-    }
-    
-    const bordersizechange = (e) => {
-            e.preventDefault();
-    setinitialbordersize(e.target.value)
-    }
-    
+        e.preventDefault();
+        setColor(e.target.value)
+   }
+
+
+
+    const [boldchecked,setboldchecked] = useState({boolean:false,css:"bold"})
+    const [italicchecked,setitalicchecked] = useState({boolean:false,css:"italic"})
+    const [underlinechecked,setunderlinechecked] = useState({boolean:false,css:"underline"})
+
     const boldhandlechange = (e) => {
-        settextstyle(prevState => ({
+        setboldchecked(prevState => ({
             ...prevState,  
-            bold: e.target.checked     
+            boolean: e.target.checked     
           }));
     }
     
     const italichandlechange = (e) => {
-        settextstyle(prevState => ({
+        setitalicchecked(prevState => ({
             ...prevState,  
-            italic: e.target.checked     
+            boolean: e.target.checked     
           }));
     }
     
     const underlinehandlechange = (e) => {
-        settextstyle(prevState => ({
+        setunderlinechecked(prevState => ({
             ...prevState,  
-            underline: e.target.checked     
+            boolean: e.target.checked     
           }));
     }
     
-useEffect(()=>{
+    
+    const [backgroundcolor,setbackgroundcolor] = useState("#ffffff")
 
-    if(borderdisplayed === true){
-        setborder("none")
+    const bckgcolorchange = (e) =>{
+        setbackgroundcolor(e.target.value)
     }
+    
+    const [bordercolor,setbordercolor] = useState("#000000")
 
-setnewarray([...prevtext])
-settext(prevtext[itemid])
-setdisableredobutton(itemid < prevtext.length-1)
-setdisableredobutton(itemid == prevtext.length-1)
-setdisabelundo(itemid > 0)
-setdisabelundo(itemid == 0)
-
- },[prevtext,itemid,text,colorcode,boldchecked,textstyle,italicchecked])
-
-
-useEffect(()=>{
-    if(!borderdisplayed){
-        setborder(bordersize + ' solid ' + bordercolor)
+    const bordercolorchange = (e) => {
+        setbordercolor(e.target.value)
     }
+    
+    const [bordersize,setbordersize] = useState("1px")
 
-    else if(borderdisplayed){
-        setborder('none')
+    const bordersizechange = (e) => {
+        e.preventDefault();
+        setbordersize(e.target.value)
+}
+
+const [borderdisplayed,setborderdisplayed] = useState(true)
+    const [border,setborder] = useState(`${bordersize} solid ${bordercolor}`)
+    useEffect(()=>{
+        if(!borderdisplayed){
+            setborder(bordersize + ' solid ' + bordercolor)
+        }
+    
+        else if(borderdisplayed){
+            setborder('none')
+        }
+    },[borderdisplayed,bordersize,bordercolor])
+    
+
+    const borderdisplaychange = (e) =>{
+        setborderdisplayed(e.target.checked)
     }
-},[initialbordercolor,bordercolor,bordersize,initialbordersize,border,borderdisplayed])
+    
 
-    const handlesubmit = (e) => {
-        
-  
-        setbordercolor(initialbordercolor)
-        setbordersize(initialbordersize)
 
-        setboldchecked(prevState => ({
-            ...prevState,  
-            boolean: textstyle.bold    
-          }));
-          setitalicchecked(prevState => ({
-            ...prevState,  
-            boolean: textstyle.italic    
-          }));
-          setunderlinechecked(prevState => ({
-            ...prevState,  
-            boolean: textstyle.underline    
-          }));
+
+
+
+
+
+const handlesubmit = (e) => {
 if(!newtext == ""){
     const newid = itemid + 1
     const length = prevtext.length
     const diff = length - newid
     const neww = newarray
     neww.splice(newid , diff , newtext)
-    
-    
             setnewarray(neww)
             setitemid(itemid+1)
             setprevtext(newarray);
-}
-setColor(colorcode)
+    }
         setvisible(false)
-        setfontsize(newfont)
-        setbackgroundcolor(bckgcolor)
-  
-    }
-
-
-const undo =(e)=>{
-    e.preventDefault();
-    if (itemid > 0){
-        const lessid = itemid - 1
-        setitemid(lessid)
-    }
-
-    setvisible(false)
 }
 
-const redo = (e) => {
-    e.preventDefault();
-    if(itemid < prevtext.length-1){
-        setitemid(itemid+1)
-    }
-    setvisible(false)
-}
 
 
     return { 
@@ -187,21 +176,16 @@ const redo = (e) => {
         icon,
         Color,
         colorhandlechange,
-        colorcode,
         boldhandlechange,
         italichandlechange,
-        textstyle,
         underlinehandlechange,
         boldchecked,
         italicchecked,
         underlinechecked,
-        newfont,
         test,
-        bckgcolor,
         backgroundcolor,
         borderdisplaychange,
         border,
-        initialbordercolor,
         bckgcolorchange,
         borderdisplayed,
         bordersizechange,

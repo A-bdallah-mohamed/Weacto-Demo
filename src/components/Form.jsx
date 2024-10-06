@@ -109,15 +109,15 @@ onChange={(e) => newtext.handlefontchange(e)}>
       <div className='checkboxes'>
         <label>
           Bold :
-          <Checkbox {...label} checked={newtext.textstyle.bold} onChange={newtext.boldhandlechange}/>
+          <Checkbox {...label} checked={newtext.boldchecked.boolean} onChange={newtext.boldhandlechange}/>
         </label>
         <label>
           Italic :
-          <Checkbox {...label}  checked={newtext.textstyle.italic} onChange={newtext.italichandlechange} />
+          <Checkbox {...label}  checked={newtext.italicchecked.boolean} onChange={newtext.italichandlechange} />
         </label>
         <label>
           Underline :
-          <Checkbox {...label} checked={newtext.textstyle.underline} onChange={newtext.underlinehandlechange}/>
+          <Checkbox {...label} checked={newtext.underlinechecked.boolean} onChange={newtext.underlinehandlechange}/>
 
         </label>
       </div>
@@ -128,10 +128,8 @@ onChange={(e) => newtext.handlefontchange(e)}>
          </label>
     
       </div>
-      <label>
-        <div className='bordertitle'>Border </div>     </label> 
       <div className='border'>
-<label>Remove <Checkbox {...label} checked={newtext.borderdisplayed} onChange={newtext.borderdisplaychange}/></label>
+<label>Remove Border<Checkbox {...label} checked={newtext.borderdisplayed} onChange={newtext.borderdisplaychange}/></label>
 <label style={{ textDecoration : newtext.borderdisplayed ? 'line-through' : 'none' ,color : newtext.borderdisplayed ? 'gray' : ''}}>Color :
   <input  disabled={newtext.borderdisplayed} type='color' onChange={(e) => newtext.bordercolorchange(e)} value={newtext.initialbordercolor} /></label>
 <label style={{ textDecoration : newtext.borderdisplayed ? 'line-through' : 'none' ,color : newtext.borderdisplayed ? 'gray' : ''}}>Size : 
@@ -144,9 +142,12 @@ onChange={(e) => newtext.handlefontchange(e)}>
 <div>
 
 </div>
+<button className='deletebutton'>Delete Component</button>
       </div>
 
-      :<div className='fakecontent'>
+      :
+
+      <div className='fakecontent'>
       <label htmlFor='text' style={{ marginBottom: "15px" }}>
         "{newtext.text}" {datatype}
       </label>
@@ -163,7 +164,7 @@ onChange={(e) => newtext.handlefontchange(e)}>
       <div className='fontsizeselect'>
         <label htmlFor='fontsize'>Font Size :         <select
 
-value={newtext.newfont}
+value={newtext.fontsize}
 label="fontsize"
 onChange={(e) => newtext.handlefontchange(e)}>
   {fontsizes.map((number) => (
@@ -179,15 +180,15 @@ onChange={(e) => newtext.handlefontchange(e)}>
       <div className='checkboxes'>
         <label>
           Bold :
-          <Checkbox {...label}  checked={newtext.textstyle.bold} onChange={newtext.boldhandlechange}/>
+          <Checkbox {...label}  checked={newtext.boldchecked.boolean} onChange={newtext.boldhandlechange}/>
         </label>
         <label>
           Italic :
-          <Checkbox {...label}  checked={newtext.textstyle.italic} onChange={newtext.italichandlechange} />
+          <Checkbox {...label}  checked={newtext.italicchecked.boolean} onChange={newtext.italichandlechange} />
         </label>
         <label>
           Underline :
-          <Checkbox {...label}  checked={newtext.textstyle.underline} onChange={newtext.underlinehandlechange}/>
+          <Checkbox {...label}  checked={newtext.underlinechecked.boolean} onChange={newtext.underlinehandlechange}/>
 
         </label>
       </div>
@@ -195,6 +196,7 @@ onChange={(e) => newtext.handlefontchange(e)}>
 <div>
 
 </div>
+<button className='deletebutton'>Delete Component</button>
       </div>
 
 

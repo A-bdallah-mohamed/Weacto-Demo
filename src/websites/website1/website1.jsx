@@ -19,14 +19,11 @@ export default function Website1({editable , seteditable}) {
 // If not Create a function returns the jsx line asigned to the custom hook 
 
 
-const darkencolor = (color) => {
-color.filter ='brightness(0.8)'
-}
   const textstylecomponent = (changetexthook) => {
     let styles = {
 cursor: 'cell',
-      fontWeight : changetexthook.boldchecked.boolean ? 'bold' : 'none'
-      ,fontStyle :changetexthook.italicchecked.boolean ? 'italic' : ''
+      fontWeight : changetexthook.boldchecked.boolean ? 'bold' : '500'
+      ,fontStyle :changetexthook.italicchecked.boolean ? 'italic' : 'normal'
       ,textDecoration : changetexthook.underlinechecked.boolean ? 'underline' : 'none'
       ,fontSize : `${changetexthook.fontsize}px`
       ,color: changetexthook.Color
