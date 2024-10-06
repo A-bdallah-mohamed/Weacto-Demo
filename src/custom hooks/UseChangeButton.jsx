@@ -105,12 +105,6 @@ setdisabelundo(itemid == 0)
 
 
 useEffect(()=>{
-    console.log(initialbordercolor)
-    console.log(bordercolor)
-    console.log(initialbordersize)
-    console.log(bordersize)
-    console.log(border)
-    console.log(borderdisplayed)
     if(!borderdisplayed){
         setborder(bordersize + ' solid ' + bordercolor)
     }
@@ -124,9 +118,7 @@ useEffect(()=>{
         
   
         setbordercolor(initialbordercolor)
-        console.log(bordercolor)
         setbordersize(initialbordersize)
-        console.log(bordersize)
 
         setboldchecked(prevState => ({
             ...prevState,  

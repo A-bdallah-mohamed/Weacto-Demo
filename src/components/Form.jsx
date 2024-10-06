@@ -42,38 +42,30 @@ const handleonmousedown = (e) => {
     x:offsetX,
     y:offsetY
   })
-  console.log(dragOffset)
 }
   const  mousedownhandle = (e) => {
-    const formRect = e.currentTarget.getBoundingClientRect();
-    const offsetX = e.nativeEvent.offsetX;
-    const offset = e.clientX - e.nativeEvent.offsetX
-
     setposition({x:e.clientX -  dragOffset.x , y : (e.clientY - dragOffset.y) + 10})
-    const offsetY = e.nativeEvent.offsetY;
 
 
 setdragging(true)
   } 
 
   const  mousemovehandle = (e) => {
-    console.log("moving")
+
     setdragging(true)
     setposition({x:e.clientX -  dragOffset.x , y : (e.clientY- dragOffset.y) + 10})
   } 
   
   const  mouseuphandle = (e) => {
-    console.log("ended moving")
     setposition({x:e.clientX -  dragOffset.x , y : e.clientY- dragOffset.y})
     setdragging(false)
+
   } 
-  useEffect(()=> {
-console.log(position)
-  },[position])
+
   return (
 
   
-   <FormControl ref={form} className={`formtext ${isformshown && dragging ? 'formshown' : 'formshown'}`} style={{ left: position.x, top: position.y, position: 'absolute' , cursor: dragging ? "grabbing" : "grabbing"}}>
+   <FormControl ref={form} className={`formtext ${isformshown && 'formshown'}`} style={{ left: position.x, top: position.y, position: 'absolute'}}>
    
       <div onClick={() => setformvisible(false)} className='closelogo'>X</div>
       <div>

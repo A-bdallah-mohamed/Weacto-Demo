@@ -40,7 +40,7 @@ min-height: 100vh;
     opacity: 1;
 }
 .formshown{
-transition: all 0.5s ease;
+    transition: all 0.5s ease-out;
     opacity: 1;
 }
 .fakecontent{
@@ -234,5 +234,5 @@ white-space: nowrap;
 .dragabble{
     width: 100%;
     height: 25px;
-    cursor: grab;
+cursor: grab;
 }
