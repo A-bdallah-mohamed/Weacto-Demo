@@ -252,3 +252,34 @@ white-space: nowrap;
     height: 25px;
 cursor: grab;
 }
+.imageinlabel{
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background-size: cover;
+}
+.uploadcontainer{
+    width: 350px;
+    height: 100px;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 45px;
+    cursor: pointer;
+        transition: 0.5s ease all;
+}
+.uploadcontainer:hover .uploadtext{
+    transform: rotate(20deg);
+    transition: 0.5s ease all;
+}
+.uploadcontainer:hover{
+    background-color: rgb(237, 237, 237);
+        transition: 0.5s ease all;
+}
+.uploadtext{
+    transition: 0.5s ease all;
+}

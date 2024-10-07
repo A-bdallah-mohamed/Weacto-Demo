@@ -11,6 +11,7 @@ import { useRef , useState , useEffect } from 'react';
 import UseChangetext from '../../custom hooks/UseChangetext';
 import Form from '../../components/Form';
 import UseChangeButton from '../../custom hooks/UseChangeButton';
+import UseChangeImage from '../../custom hooks/UseChangeImage';
 export default function Website1({editable , seteditable}) {
 
 
@@ -21,17 +22,31 @@ export default function Website1({editable , seteditable}) {
 
   const textstylecomponent = (changetexthook) => {
     let styles = {
-cursor: 'cell',
-      fontWeight : changetexthook.boldchecked.boolean ? 'bold' : '500'
-      ,fontStyle :changetexthook.italicchecked.boolean ? 'italic' : 'normal'
-      ,textDecoration : changetexthook.underlinechecked.boolean ? 'underline' : 'none'
-      ,fontSize : `${changetexthook.fontsize}px`
-      ,color: changetexthook.Color
+       cursor: 'cell'
     }
-    if (changetexthook.backgroundcolor){
-      styles.backgroundColor = changetexthook.backgroundcolor;
-      styles.border = `${changetexthook.border}`
+    if(changetexthook.imageline === undefined){
+      console.log("zobry mango barddo")
+       styles = {
+        cursor: 'cell',
+              fontWeight : changetexthook.boldchecked.boolean ? 'bold' : '500'
+              ,fontStyle :changetexthook.italicchecked.boolean ? 'italic' : 'normal'
+              ,textDecoration : changetexthook.underlinechecked.boolean ? 'underline' : 'none'
+              ,fontSize : `${changetexthook.fontsize}px`
+              ,color: changetexthook.Color
+            }
+            if (changetexthook.backgroundcolor){
+              styles.backgroundColor = changetexthook.backgroundcolor;
+              styles.border = `${changetexthook.border}`
+            }
     }
+else{
+  styles = {
+    cursor: 'cell',
+    backgroundImage:`url('${changetexthook.imageline}')`
+        }
+}
+    
+
     return styles
   }
 const [position,setposition] = useState({x:0,y:0})
@@ -40,8 +55,10 @@ const [position,setposition] = useState({x:0,y:0})
 const [formvisible,setformvisible] = useState(false)
 const items = [
   {text:"WebsiteLink.com",datatype:"text"},
-  {text:"work",datatype:"button"},
-  {text:"Copy",datatype:"button"}
+  {text:"work",datatype:"button",bgcolor:"#ffffff",color:"#000000"},
+  {text:"Copy",datatype:"button",bgcolor:"#ffffff",color:"#000000"},
+  {imageLink:"https://i.pinimg.com/736x/99/e8/14/99e814c1ca80a8402a25b5ddd26b43b4.jpg",datatype:"image"}
+
 ]
 const [selectedelment,setselectedelment] = useState(items)
 const [selectedItemId,setselectedItemId] = useState()
@@ -64,7 +81,11 @@ if(item.datatype === "text" ){
 }
 else if(item.datatype === "button"){
  
-  functions[i] = UseChangeButton(item.text,setformvisible,item.icon)
+  functions[i] = UseChangeButton(item.text,setformvisible,item.icon,item.bgcolor,item.color)
+}
+else if(item.datatype === "image"){
+ 
+  functions[i] = UseChangeImage(item.imageLink,setformvisible)
 }
 }
 const styles = [];
@@ -83,7 +104,7 @@ styles[i] = textstylecomponent(functions[i])
 <div>
   <p onClick={(e)=>handleclick(e,0)} style={styles[0]}>{functions[0].text}</p>
 
-  {editable && ( <button>Copy</button>) }
+  {editable && (  <button onClick={(e)=>handleclick(e,2)} style={styles[2]}>{functions[2].text}</button>) }
   <button onClick={(e)=>handleclick(e,1)} style={styles[1]}>{functions[1].text}</button>
 </div>
 <ul>
@@ -96,7 +117,7 @@ styles[i] = textstylecomponent(functions[i])
       </header>
       <div className='mainsection'>
         <div className='imagecontainer'>
-      <div className='image' style={{backgroundImage:'url(https://i.pinimg.com/736x/99/e8/14/99e814c1ca80a8402a25b5ddd26b43b4.jpg)'}}></div>
+      <div className='image' onClick={(e)=>handleclick(e,3)} style={styles[3]} />
       <div className='textonimage'>Content Name</div>
       </div>
 <div className='maintext'>

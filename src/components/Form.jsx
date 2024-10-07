@@ -9,6 +9,8 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import { MdCloudUpload } from "react-icons/md";
+
 
 
 
@@ -44,7 +46,7 @@ const handleonmousedown = (e) => {
   })
 }
   const  mousedownhandle = (e) => {
-    setposition({x:e.clientX -  dragOffset.x , y : (e.clientY - dragOffset.y) + 10})
+    setposition({x:e.clientX -  dragOffset.x , y : (e.clientY - dragOffset.y)})
 
 
 setdragging(true)
@@ -53,7 +55,7 @@ setdragging(true)
   const  mousemovehandle = (e) => {
 
     setdragging(true)
-    setposition({x:e.clientX -  dragOffset.x , y : (e.clientY- dragOffset.y) + 10})
+    setposition({x:e.clientX -  dragOffset.x , y : (e.clientY- dragOffset.y)})
   } 
   
   const  mouseuphandle = (e) => {
@@ -74,7 +76,7 @@ setdragging(true)
       </div>
       <div className='dragabble' draggable={true} onMouseDown={(e)=>handleonmousedown(e)} onDragCapture={(e)=>mousedownhandle(e)} onDrag={(e)=>mousemovehandle(e)} onDragEnd={(e)=>mouseuphandle(e)}/>
 
-      { datatype === "button" ? <div className='fakecontent'>
+      { datatype === "button" && <div className='fakecontent'>
       <label htmlFor='text' style={{ marginBottom: "15px" }}>
         "{newtext.text}" {datatype}
       </label>
@@ -144,8 +146,8 @@ onChange={(e) => newtext.handlefontchange(e)}>
 </div>
 <button className='deletebutton'>Delete Component</button>
       </div>
-
-      :
+}
+{ datatype === "text" &&
 
       <div className='fakecontent'>
       <label htmlFor='text' style={{ marginBottom: "15px" }}>
@@ -202,6 +204,25 @@ onChange={(e) => newtext.handlefontchange(e)}>
 
 }
 
+{ datatype === "image" &&
+
+<div className='fakecontent'>
+<label htmlFor='text' style={{ marginBottom: "15px" }}>
+  <div className='imageinlabel' style={{backgroundImage:`url(${newtext.newimg})`,backgroundSize:'cover'}}/> {datatype}
+</label>
+<div className='uploadcontainer'  onClick={() => document.getElementById('imageInput').click()}>
+<input type="file" accept="image/*" style={{ display: 'none' }} id="imageInput" onChange={newtext.handleimagechange}/>
+<MdCloudUpload  className='uploadtext' />
+</div>
+<p>Upload image</p>
+<br />
+<button className='submitbutton' onClick={newtext.handlesubmitimage}>Submit</button>
+
+</div>
+
+
+
+}
 </FormControl>
     
 

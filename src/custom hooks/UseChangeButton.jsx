@@ -1,7 +1,7 @@
 import React , { useEffect, useState } from "react";
 import * as FaIcons from 'react-icons/fa'
 
-const UseChangeButton = (textt,setvisible,icon) =>{
+const UseChangeButton = (textt,setvisible,icon,bgcolor,color) =>{
 
 // reutrn outline style
 // change react icons
@@ -66,7 +66,7 @@ const test = "this is the test text"
         setfontsize(e.target.value)
    }
 
-    const [Color,setColor] = useState("#000000")
+    const [Color,setColor] = useState(color)
 
     const colorhandlechange = (e) =>{
         e.preventDefault();
@@ -101,7 +101,7 @@ const test = "this is the test text"
     }
     
     
-    const [backgroundcolor,setbackgroundcolor] = useState("#ffffff")
+    const [backgroundcolor,setbackgroundcolor] = useState(bgcolor)
 
     const bckgcolorchange = (e) =>{
         setbackgroundcolor(e.target.value)
