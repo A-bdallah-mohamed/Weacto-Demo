@@ -1,10 +1,9 @@
 import React from 'react'
 import { useInView } from 'react-intersection-observer';
-export default function UseIntersection(options) {
+export default function UseIntersection(boolean) {
     
     return useInView({
-        triggerOnce: true,
-        threshold: 0.1,
-        ...options,
+        triggerOnce: boolean,
+        threshold: 0.1
       });
     };

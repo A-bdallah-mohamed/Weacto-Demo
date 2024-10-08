@@ -5,7 +5,7 @@ import Form from "../components/Form";
 const UseChangeImage = (link,setvisible) =>{
     const [imageline,setimagelink] = useState(link)
 
-    const [newimg,setnewimg] = useState(imageline)
+    const [newimg,setnewimg] = useState(null)
 
     const handleimagechange = (e) => {
         const file = e.target.files[0];
@@ -20,6 +20,7 @@ const UseChangeImage = (link,setvisible) =>{
     const handlesubmitimage = (e) => {
         setimagelink(newimg)
         setvisible(false)
+        setnewimg(null); 
     }
     return{
         imageline,

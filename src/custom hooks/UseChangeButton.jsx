@@ -3,11 +3,8 @@ import * as FaIcons from 'react-icons/fa'
 
 const UseChangeButton = (textt,setvisible,icon,bgcolor,color) =>{
 
-// reutrn outline style
 // change react icons
 
-
-// submit only for changing the text of the component ,,,,,,, other features are changing immediately     -important
 
 
 const test = "this is the test text"
@@ -187,6 +184,7 @@ if(!newtext == ""){
         borderdisplaychange,
         border,
         bckgcolorchange,
+        backgroundcolor,
         borderdisplayed,
         bordersizechange,
         bordercolorchange

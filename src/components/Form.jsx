@@ -10,6 +10,8 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { MdCloudUpload } from "react-icons/md";
+import { MdAutoDelete } from "react-icons/md";
+import { IoMdCloudDone } from "react-icons/io";
 
 
 
@@ -22,6 +24,7 @@ import { MdCloudUpload } from "react-icons/md";
 export default function Form({
   newtext, position,setposition,formvisible, setformvisible, datatype, editable, setselectedItemId
 }) {
+const [areyousure, areyousureshown] = UseIntersection(false)
 
   const fontsizes = [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30];
 
@@ -30,7 +33,7 @@ export default function Form({
     newtext.handlesubmit();
   };
 
- const [form,isformshown] = UseIntersection()
+ const [form,isformshown] = UseIntersection(true)
 
   const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 const [dragging , setdragging] = useState(false)
@@ -40,33 +43,70 @@ const [dragOffset,setdragOffset] = useState({x:0,y:0})
 const handleonmousedown = (e) => {
   const offsetX = e.nativeEvent.offsetX;
   const offsetY = e.nativeEvent.offsetY;
-  setdragOffset({
+  console.log(position)
+    setdragOffset({
     x:offsetX,
     y:offsetY
   })
 }
   const  mousedownhandle = (e) => {
-    setposition({x:e.clientX -  dragOffset.x , y : (e.clientY - dragOffset.y)})
+    const Ycordinates = e.clientY + window.scrollY 
+    const Xcordinates = (e.clientX + window.scrollX ) -  dragOffset.x
+    setposition({x:Xcordinates , y : Ycordinates})
 
 
 setdragging(true)
   } 
 
   const  mousemovehandle = (e) => {
-
+    const Ycordinates = e.clientY + window.scrollY 
     setdragging(true)
-    setposition({x:e.clientX -  dragOffset.x , y : (e.clientY- dragOffset.y)})
+    const Xcordinates = (e.clientX + window.scrollX ) -  dragOffset.x
+    setposition({x:Xcordinates , y : Ycordinates})
+
   } 
   
   const  mouseuphandle = (e) => {
-    setposition({x:e.clientX -  dragOffset.x , y : e.clientY- dragOffset.y})
+    const Ycordinates = e.clientY + window.scrollY 
+    const Xcordinates = (e.clientX + window.scrollX ) -  dragOffset.x
+    setposition({x:Xcordinates , y : Ycordinates})
+
     setdragging(false)
 
-  } 
-
-  return (
-
+  }
   
+  const [deletescreen,setdeletescreen] = useState(false)
+const areyousureon = () => {
+  setdeletescreen(true)
+  document.body.style.overflow = 'hidden';
+  console.log("on")
+}
+const cancel = () => {
+  setdeletescreen(false)
+  document.body.style.overflow = 'auto';
+  console.log("off")
+}
+const yesdelete = () => {
+  setdeletescreen(false)
+  document.body.style.overflow = 'auto';
+  console.log("off")
+}
+  return (
+<>
+  <div className={`${deletescreen ? 'bigscreen' : 'bigscreenunvisible'}`} ref={areyousure}>
+    <div className={` ${areyousureshown ? 'testt' : 'testtnotshown'} `} >
+      <div className='testcontainer'>
+    <MdAutoDelete style={{ fontSize: '40px' ,color:'red'}} />
+
+      <h6>deleting "{newtext.text}" {datatype} </h6>
+      <p>Are you sure you want to delete "{newtext.text}" {datatype} ?<br />Once deleted it cannot be recovered </p>
+      <div className='buttonsdiv'>
+        <button onClick={()=>cancel()}>CANCEL</button>
+        <button onClick={()=>yesdelete()}>YES! DELETE</button>
+      </div>
+    </div>
+    </div>
+  </div>
    <FormControl ref={form} className={`formtext ${isformshown && 'formshown'}`} style={{ left: position.x, top: position.y, position: 'absolute'}}>
    
       <div onClick={() => setformvisible(false)} className='closelogo'>X</div>
@@ -93,7 +133,7 @@ setdragging(true)
       <div className='fontsizeselect'>
         <label htmlFor='fontsize'>Font Size :         <select
 
-value={newtext.newfont}
+value={newtext.fontsize}
 label="fontsize"
 onChange={(e) => newtext.handlefontchange(e)}>
 
@@ -126,7 +166,7 @@ onChange={(e) => newtext.handlefontchange(e)}>
       </div>
       <div className='buttonoptions'>
       <label htmlFor='color'>Background Color :
-         <input type='color' onChange={(e) => newtext.bckgcolorchange(e)} value={newtext.bckgcolor} />
+         <input type='color' onChange={(e) => newtext.bckgcolorchange(e)} value={newtext.backgroundcolor} />
          </label>
     
       </div>
@@ -144,7 +184,7 @@ onChange={(e) => newtext.handlefontchange(e)}>
 <div>
 
 </div>
-<button className='deletebutton'>Delete Component</button>
+<button className='deletebutton' onClick={()=>areyousureon()}>Delete Component</button>
       </div>
 }
 { datatype === "text" &&
@@ -198,7 +238,7 @@ onChange={(e) => newtext.handlefontchange(e)}>
 <div>
 
 </div>
-<button className='deletebutton'>Delete Component</button>
+<button className='deletebutton' onClick={()=>areyousureon()}>Delete Component</button>
       </div>
 
 
@@ -208,13 +248,16 @@ onChange={(e) => newtext.handlefontchange(e)}>
 
 <div className='fakecontent'>
 <label htmlFor='text' style={{ marginBottom: "15px" }}>
-  <div className='imageinlabel' style={{backgroundImage:`url(${newtext.newimg})`,backgroundSize:'cover'}}/> {datatype}
+  <div className='imageinlabel' style={{backgroundImage:`url(${newtext.imageline})`,backgroundSize:'cover'}}/> {datatype}
 </label>
 <div className='uploadcontainer'  onClick={() => document.getElementById('imageInput').click()}>
 <input type="file" accept="image/*" style={{ display: 'none' }} id="imageInput" onChange={newtext.handleimagechange}/>
 <MdCloudUpload  className='uploadtext' />
 </div>
-<p>Upload image</p>
+{newtext.newimg ? <div className='imageuploadedcontainere'><div className='imageuploaded'><div style={{backgroundImage:`url(${newtext.newimg})`}} className='imagein'/><h5>Completed</h5></div>
+<IoMdCloudDone className='doneicon' />
+</div> : <p onClick={() => document.getElementById('imageInput').click()}>Upload image</p>}
+
 <br />
 <button className='submitbutton' onClick={newtext.handlesubmitimage}>Submit</button>
 
@@ -226,6 +269,6 @@ onChange={(e) => newtext.handlefontchange(e)}>
 </FormControl>
     
 
-
+</>
   );
 }

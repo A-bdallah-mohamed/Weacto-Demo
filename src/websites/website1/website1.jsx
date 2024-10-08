@@ -25,7 +25,6 @@ export default function Website1({editable , seteditable}) {
        cursor: 'cell'
     }
     if(changetexthook.imageline === undefined){
-      console.log("zobry mango barddo")
        styles = {
         cursor: 'cell',
               fontWeight : changetexthook.boldchecked.boolean ? 'bold' : '500'

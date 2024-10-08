@@ -43,6 +43,130 @@ min-height: 100vh;
     transition: all 0.5s ease-out;
     opacity: 1;
 }
+.bigscreen{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.33);
+    z-index: 100000;
+display: flex;
+align-items: center;
+justify-content: center;
+max-width: 100vw;
+overflow-x: hidden;
+}
+.bigscreenunvisible{
+    opacity: 0;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+}
+.testtnotshown{
+    transition: all ease 0.3s;
+width: 500px;
+    background-color: white;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    height: 0px;
+}
+.fakecontent p{
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.doneicon{
+    font-size: 35px;
+    color: rgb(0, 203, 0);
+
+}
+.fakecontent p:hover{
+    background-color: rgb(206, 206, 206);
+}
+
+.imagein{
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    border: 1px solid black;
+}
+.imageuploaded{
+    display: flex;
+    align-items: center;
+width: 100%;
+    gap: 10px;
+    margin: 10px 0 0px 0;
+}
+.imageuploadedcontainere{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.testt{
+    transition: all ease 0.3s;
+    height: 200px;
+    width: 500px;
+        background-color: white;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        overflow: hidden;
+        position: relative;
+}
+.testcontainer{
+    padding: 25px 0px 60px 0px;
+width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    position: absolute;
+}
+.buttonsdiv{
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    width: 100%;
+}
+.buttonsdiv button:first-child {
+    border-right: 1px solid rgb(135, 135, 135);
+  }
+.buttonsdiv button{
+    border-top: 1px solid rgb(135, 135, 135);
+    border-left:none;
+    border-right: none;
+    border-radius: 0;
+    width: 50%;
+}
+.buttonsdiv button:nth-child(2) {
+color: rgb(184, 0, 0);
+  }
+.buttonsdiv button:hover{
+    background-color: rgb(190, 190, 190);
+}
+.testt h6{
+    margin: 5px;
+    font-size: 20px;
+}
+.testt p{
+    text-align: center;
+    font-size: 15px;
+}
 .fakecontent{
     overflow: hidden;
     gap: 5px;

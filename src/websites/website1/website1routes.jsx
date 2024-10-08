@@ -21,7 +21,7 @@ export default function Website1routes({editable ,seteditable }) {
 
   }
   return (
-    <>
+    <div className='containerofcontainer'>
     
  <div className='goback'>
  <div className='iconntext'>
@@ -35,6 +35,6 @@ export default function Website1routes({editable ,seteditable }) {
         <Route path='/' element={<Website1 editable={editable} seteditable={seteditable} />} />
         <Route path='/Edit' element={<Website1 editable={editable} seteditable={seteditable} />} />
     </Routes>
-    </>
+    </div>
   )
 }
