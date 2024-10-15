@@ -15,12 +15,6 @@ import { IoMdCloudDone } from "react-icons/io";
 
 
 
-
-
-
-// Add dragin feature             -important !!
-
-
 export default function Form({
   newtext, position,setposition,formvisible, setformvisible, datatype, editable, setselectedItemId
 }) {
@@ -43,7 +37,6 @@ const [dragOffset,setdragOffset] = useState({x:0,y:0})
 const handleonmousedown = (e) => {
   const offsetX = e.nativeEvent.offsetX;
   const offsetY = e.nativeEvent.offsetY;
-  console.log(position)
     setdragOffset({
     x:offsetX,
     y:offsetY
@@ -79,18 +72,20 @@ setdragging(true)
 const areyousureon = () => {
   setdeletescreen(true)
   document.body.style.overflow = 'hidden';
-  console.log("on")
 }
 const cancel = () => {
   setdeletescreen(false)
   document.body.style.overflow = 'auto';
-  console.log("off")
 }
 const yesdelete = () => {
   setdeletescreen(false)
   document.body.style.overflow = 'auto';
-  console.log("off")
+  setformvisible(false)
+  newtext.setDisplay("none")
 }
+useEffect(()=>{
+console.log(newtext.Display)
+},[])
   return (
 <>
   <div className={`${deletescreen ? 'bigscreen' : 'bigscreenunvisible'}`} ref={areyousure}>

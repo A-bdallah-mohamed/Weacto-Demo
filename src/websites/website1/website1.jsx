@@ -31,7 +31,8 @@ export default function Website1({editable , seteditable}) {
               ,fontStyle :changetexthook.italicchecked.boolean ? 'italic' : 'normal'
               ,textDecoration : changetexthook.underlinechecked.boolean ? 'underline' : 'none'
               ,fontSize : `${changetexthook.fontsize}px`
-              ,color: changetexthook.Color
+              ,color: changetexthook.Color,
+              display: changetexthook.Display
             }
             if (changetexthook.backgroundcolor){
               styles.backgroundColor = changetexthook.backgroundcolor;

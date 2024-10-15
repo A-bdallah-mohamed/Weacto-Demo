@@ -66,7 +66,6 @@ const boldhandlechange = (e) => {
         ...prevState,  
         boolean: e.target.checked     
       }));
-      console.log(e.target.checked)
 }
 const italichandlechange = (e) => {
     setitalicchecked(prevState => ({
@@ -96,9 +95,12 @@ if(!newtext == ""){
 }
 
 
+const [Display,setDisplay] = useState("block")
 
 
     return { 
+        Display,
+        setDisplay,
         text, 
         newtext, 
         handlechange, 

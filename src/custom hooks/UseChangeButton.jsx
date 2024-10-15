@@ -5,8 +5,6 @@ const UseChangeButton = (textt,setvisible,icon,bgcolor,color) =>{
 
 // change react icons
 
-
-
 const test = "this is the test text"
     const [text,    settext ] = useState(textt)
     const [newtext,setnewtext] = useState("")
@@ -156,8 +154,11 @@ if(!newtext == ""){
 }
 
 
+const [Display,setDisplay] = useState("block")
 
     return { 
+        Display,
+        setDisplay,
         text, 
         newtext, 
         handlechange, 
