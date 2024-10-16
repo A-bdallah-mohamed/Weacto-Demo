@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { EditbleStateProvider } from './GlobalStates.jsx/EditbleState';
-import useScrollToTop from './custom hooks/UseScrolltotop';
 import Platform from './platform/platform';
 import websitesDB from './db/websiteDB';
 
