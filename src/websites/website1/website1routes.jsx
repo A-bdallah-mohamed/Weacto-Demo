@@ -1,10 +1,18 @@
-import React from 'react'
+import React, {useEffect}from 'react'
 import { BrowserRouter as Router , Route , Routes} from 'react-router-dom';
 import { Switch , Link} from 'react-router-dom';
 import Website1 from './website1';
 import { FaBackward } from "react-icons/fa";
 import { useState } from 'react';
-export default function Website1routes({editable ,seteditable }) {
+import { useContext } from 'react';
+import { EditbleStateContext } from '../../GlobalStates.jsx/EditbleState'
+import './website1.css';
+export default function Website1routes() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const {editable,seteditable} = useContext(EditbleStateContext)
   const vieworedit = () => {
     if(editable){
       return(

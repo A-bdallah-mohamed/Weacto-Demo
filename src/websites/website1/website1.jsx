@@ -12,14 +12,19 @@ import UseChangetext from '../../custom hooks/UseChangetext';
 import Form from '../../components/Form';
 import UseChangeButton from '../../custom hooks/UseChangeButton';
 import UseChangeImage from '../../custom hooks/UseChangeImage';
-export default function Website1({editable , seteditable}) {
+import { useContext } from 'react';
+import { EditbleStateContext } from '../../GlobalStates.jsx/EditbleState'
+export default function Website1() {
 
 
 // Add the jsx lines into the "items" array
 // If possible put the custom hook also inside the "items" array 
 // If not Create a function returns the jsx line asigned to the custom hook 
 
-
+const {editable,seteditable} = useContext(EditbleStateContext)
+useEffect(()=>{
+  console.log(editable)
+  },[])
   const textstylecomponent = (changetexthook) => {
     let styles = {
        cursor: 'cell'
@@ -58,7 +63,6 @@ const items = [
   {text:"work",datatype:"button",bgcolor:"#ffffff",color:"#000000"},
   {text:"Copy",datatype:"button",bgcolor:"#ffffff",color:"#000000"},
   {imageLink:"https://i.pinimg.com/736x/99/e8/14/99e814c1ca80a8402a25b5ddd26b43b4.jpg",datatype:"image"}
-
 ]
 const [selectedelment,setselectedelment] = useState(items)
 const [selectedItemId,setselectedItemId] = useState()
