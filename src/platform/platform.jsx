@@ -1,10 +1,9 @@
 import React,{useContext, useEffect} from 'react'
-import Website1 from '../websites/website1/website1'
 import './platform.css'
 import website1image from "../assets/websitesimages/website1.jfif"
 import { Link } from 'react-router-dom'
 import { EditbleStateContext } from '../GlobalStates.jsx/EditbleState'
-import blacklogo from '../assets/platformimages/blackcropped.png'
+import blacklogo from '../assets/platformimages/whitecropped.png'
 import { LuLayoutTemplate } from "react-icons/lu";
 import { IoPricetag } from "react-icons/io5";
 import { BiSupport } from "react-icons/bi";
@@ -27,27 +26,45 @@ const handleviewclick = () => {
     <div className='platformmainpage'>
       
       <div className='platformcontainer'>
-        <header>
+        <div className='header'>
 
 
 
           <div className='logocontainer'>
 <img src={blacklogo} />
-<p>Weacctt</p>
 </div>
-
-<ul>
-  <li className='li1'><LuLayoutTemplate /><p>Templates</p></li>
-  <li className='li2'><IoPricetag  /><p>Pricing</p></li>
-  <li className='li3'><BiSupport /><p>Support</p></li>
-</ul>
 
 <div className='faqsignin'>
   <div className='faqbutton'>FAQ</div>
   <div className='regbutton'>Register</div>
 </div>
 
-        </header>
+        </div>
+
+        <div className='maintitle'>
+          <p>Grow Online</p>
+          <p>Elevate your Brand</p>
+          <button>Get Started Now</button>
+          <span>-- No credit card required</span>
+        </div>
+
+
+<div className='templatesmainpage'>
+
+  <div className='templatesfirst'>
+    <p>Templates</p>
+    <span>View All</span>
+  </div>
+  <div className='templatescontainer'>
+    <div className='template'>this is a template</div>
+    <div className='template'>this is a template</div>
+    <div className='template'>this is a template</div>
+  </div>
+</div>
+
+
+
+
       </div>
 
 
