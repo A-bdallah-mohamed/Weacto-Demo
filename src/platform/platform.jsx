@@ -1,9 +1,8 @@
 import React,{useContext, useEffect} from 'react'
 import './platform.css'
-import website1image from "../assets/websitesimages/website1.jfif"
+import { TbHexagonLetterW } from "react-icons/tb";
 import { Link } from 'react-router-dom'
 import { EditbleStateContext } from '../GlobalStates.jsx/EditbleState'
-import blacklogo from '../assets/platformimages/whitecropped.png'
 import { LuLayoutTemplate } from "react-icons/lu";
 import { IoPricetag } from "react-icons/io5";
 import { BiSupport } from "react-icons/bi";
@@ -23,15 +22,17 @@ const handleviewclick = () => {
   seteditable(false)
 }
   return (
+    <div className='platform'>
     <div className='platformmainpage'>
       
-      <div className='platformcontainer'>
+      <div className='container firstpage'>
         <div className='header'>
 
 
 
           <div className='logocontainer'>
-<img src={blacklogo} />
+          <TbHexagonLetterW className='logo' />
+
 </div>
 
 <div className='faqsignin'>
@@ -56,9 +57,9 @@ const handleviewclick = () => {
     <span>View All</span>
   </div>
   <div className='templatescontainer'>
-    <div className='template'>this is a template</div>
-    <div className='template'>this is a template</div>
-    <div className='template'>this is a template</div>
+    <div className='template'><p>E-commerce Templates</p></div>
+    <div className='template'><p>Portfolio Templates</p></div>
+    <div className='template'><p>Blog Templates</p></div>
   </div>
 </div>
 
@@ -69,7 +70,12 @@ const handleviewclick = () => {
 
 
 
-
+<div className='container secondpage'>
+<h1> How Does It Work ?</h1>
+<div className='submaintextsecondpage'>
+<p>We do the work, <br />You stay focused on your customers.</p>
+</div>
+</div>
 
 
 
@@ -96,6 +102,7 @@ const handleviewclick = () => {
    </Link>
    </div>
    
+    </div>
     </div>
   )
 }

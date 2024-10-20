@@ -1,33 +1,52 @@
-@import url("https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&family=Patua+One&family=Paytone+One&display=swa");
+@import url("https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Noto+Serif+Oriya:wght@400..700&display=swap");
 *{
     box-sizing: border-box;
     perspective: 1000px; 
-    font-family: 'Helvetica Now', sans-serif;
+    font-family: "Afacad Flux", sans-serif;
 
 
 }
+.platform{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: black;
+}
 .platformmainpage{
     width: 100%;
-    height: 200vh;
     display: flex;
 max-width: 100vw;
 overflow-x: hidden;
 background-color: #000000;
-justify-content: center;
-align-items: flex-start;
+max-width: 1380px;
+align-items: center;
+flex-direction: column;
 }
+.container{
+    flex-direction: column;
+align-items: center;
+    height: auto;
+
+    display: flex;
+    max-width: 1380px;
+    max-width: 100vw;
+    padding-bottom: 20px;
+    }
 .buttons{
     display: none;
 }
 .maintitle{
-    font-size: 60px;
+    font-size: 70px;
     font-weight: bold;
-    margin-top: 50px;
+    margin-top: 10px;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+.maintitle :nth-child(2){
+    margin-top: -30px;
 }
 .maintitle span{
     font-size: 13px;
@@ -44,16 +63,10 @@ align-items: flex-start;
 }
 .maintitle button:hover{
     background-color: rgb(0, 72, 195);
+    color: rgb(154, 154, 154);
 }
-.platformcontainer{
 
-flex-direction: column;
-align-items: center;
-height: auto;
-justify-content: center;
-display: flex;
-max-width: 1380px;
-max-width: 100vw;
+.firstpage {
 color: white;
 }
 .header{
@@ -86,7 +99,7 @@ font-weight: 400;
     align-items: center;
     justify-content: center;
     gap: 5px;
-
+    font-size: 50px;
 }
 .logocontainer p{
     font-size: 25px;
@@ -112,6 +125,7 @@ color: rgb(154, 154, 154);
         }
         .regbutton:hover{
             background-color: rgb(0, 81, 222);
+            color: rgb(154, 154, 154);
         }
         .templatesfirst{
             display: flex;
@@ -149,4 +163,49 @@ color: rgb(154, 154, 154);
             display: flex;
             align-items: center;
             justify-content: center;
+overflow: hidden;
         }
+        .template:after{
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            transition: all ease 0.5s;
+        }
+        .template:hover::after{
+            filter: blur(10px);
+            transition: all ease 0.5s;
+            cursor: pointer;
+        }
+        .template p{
+            opacity: 0;
+            transform: translateZ(0px) rotate(7deg);
+            cursor: pointer;
+            font-weight: bolder;
+        }
+        .template:hover p{
+            opacity: 1;
+            transform: translateZ(400px) rotate(0deg);
+        }
+      .secondpage{
+        background-color: white;
+        margin-top: 100px;
+        height: 200vh;
+        display: flex;
+      }
+      .secondpage h1{
+        font-weight: bold;
+        margin-top: 70px;
+        font-size: 80px;
+        font-family: "Afacad Flux", sans-serif;
+      }
+      .submaintextsecondpage{
+        width: 100%;
+        padding: 0 100px;
+        margin-top: 40px;
+      }
+      .submaintextsecondpage p{
+font-size: 30px;
+font-weight: bold;
+      }
