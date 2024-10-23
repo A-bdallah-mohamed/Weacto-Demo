@@ -6,7 +6,11 @@ import { EditbleStateContext } from '../GlobalStates.jsx/EditbleState'
 import { LuLayoutTemplate } from "react-icons/lu";
 import { IoPricetag } from "react-icons/io5";
 import { BiSupport } from "react-icons/bi";
-
+import { LuPencilLine } from "react-icons/lu";
+import { IoMdPaperPlane } from "react-icons/io";
+import { IoMdTrendingUp } from "react-icons/io";
+import { FaCheck } from "react-icons/fa";
+import logo from "../assets/platformimages/logo.png"
 // clicking logo go to top of home page 
 
 export default function Platform() {
@@ -31,7 +35,7 @@ const handleviewclick = () => {
 
 
           <div className='logocontainer'>
-          <TbHexagonLetterW className='logo' />
+  <img src={logo}/>
 
 </div>
 
@@ -57,9 +61,9 @@ const handleviewclick = () => {
     <span>View All</span>
   </div>
   <div className='templatescontainer'>
-    <div className='template'><p>E-commerce Templates</p></div>
-    <div className='template'><p>Portfolio Templates</p></div>
-    <div className='template'><p>Blog Templates</p></div>
+    <div className='template'><p>E-commerce</p></div>
+    <div className='template'><p>Portfolio</p></div>
+    <div className='template'><p>Blogs</p></div>
   </div>
 </div>
 
@@ -71,10 +75,29 @@ const handleviewclick = () => {
 
 
 <div className='container secondpage'>
-<h1> How Does It Work ?</h1>
-<div className='submaintextsecondpage'>
-<p>We do the work, <br />You stay focused on your customers.</p>
-</div>
+<p className='maintextsecondpage'>
+  We do the work, <br />You stay focused on your customers.</p>
+  <div className='sectionssecondpage'>
+    <div className='section'>
+<LuPencilLine />
+<span>Build</span>
+
+<p>Choose from +50 Customizable <br />Templates, import your data,<br />no design or coding needed.
+</p>
+    </div>
+<div className='section'>
+<IoMdPaperPlane />
+<span>Launch</span>
+<p>Once your click launch <br />after 2-3 days, you recieve your <br />Website URL
+</p>
+    </div>
+    <div className='section'>
+<IoMdTrendingUp />
+<span>Grow</span>
+<p>Youre done! <br />Daily insights <br />And revenue per click!
+</p>
+    </div>
+  </div>
 </div>
 
 

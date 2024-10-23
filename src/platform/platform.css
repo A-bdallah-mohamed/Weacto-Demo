@@ -3,8 +3,6 @@
     box-sizing: border-box;
     perspective: 1000px; 
     font-family: "Afacad Flux", sans-serif;
-
-
 }
 .platform{
     width: 100%;
@@ -84,11 +82,7 @@ color: white;
     color: white;
 
 }
-.header img{
-    width: 100%;
-    height: auto;
-max-width: 60px;
-}
+
 .header p{
 margin: 0;
 font-size: 19px;
@@ -104,6 +98,10 @@ font-weight: 400;
 .logocontainer p{
     font-size: 25px;
     margin-bottom: 2px;
+}
+.logocontainer img{
+    width:110px;
+    height: auto;
 }
         .faqsignin{
             display: flex;
@@ -159,7 +157,7 @@ color: rgb(154, 154, 154);
             width: 400px;
             height: 200px;
             border-radius: 16px;
-            border: 1px solid white;
+            border: 2px solid white;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -194,18 +192,50 @@ overflow: hidden;
         height: 200vh;
         display: flex;
       }
-      .secondpage h1{
-        font-weight: bold;
-        margin-top: 70px;
-        font-size: 80px;
-        font-family: "Afacad Flux", sans-serif;
-      }
-      .submaintextsecondpage{
+      .maintextsecondpage{
         width: 100%;
         padding: 0 100px;
-        margin-top: 40px;
+        margin-top: 110px;
+        font-size: 50px;
+font-weight: bolder;
       }
-      .submaintextsecondpage p{
-font-size: 30px;
+      .sectionssecondpage{
+        width: 100%;
+        padding: 0 100px;
+        margin-top: 110px;
+        display: flex;
+        align-items: center;
+        gap: 150px;
+      }
+.section{
+font-size: 26px;
+display: flex;
+flex-direction: column;
+gap: 10px;
+width: 250px;
+height: 180px;
+justify-content: flex-start;
+}
+.section span{
+    font-weight: 600;
+    transition: all 0.5 ease;
+}
+.section p {
+    color: rgb(163, 163, 163);
+    font-size: 18px;
+}
+.section p span{
+
+font-weight: 500;
+}
+.section:hover p{
+color: black;
+cursor: default;
 font-weight: bold;
-      }
+}
+.section:hover span{
+    color: black;
+    cursor: default;
+    font-weight: bolder;
+    transition: all 0.5 ease;
+    }
