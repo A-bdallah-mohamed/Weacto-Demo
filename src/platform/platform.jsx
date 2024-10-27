@@ -11,6 +11,7 @@ import { IoMdPaperPlane } from "react-icons/io";
 import { IoMdTrendingUp } from "react-icons/io";
 import { FaCheck } from "react-icons/fa";
 import logo from "../assets/platformimages/logo.png"
+import Accordioncomponent from '../components/accordioncomponent';
 // clicking logo go to top of home page 
 
 export default function Platform() {
@@ -79,25 +80,27 @@ const handleviewclick = () => {
   We do the work, <br />You stay focused on your customers.</p>
   <div className='sectionssecondpage'>
     <div className='section'>
-<LuPencilLine />
+<LuPencilLine className='icons'/>
 <span>Build</span>
 
-<p>Choose from +50 Customizable <br />Templates, import your data,<br />no design or coding needed.
+<p>Choose from +50 Customizable <br />Templates, import your data,<br />no coding or design needed.
 </p>
     </div>
 <div className='section'>
-<IoMdPaperPlane />
+<IoMdPaperPlane className='icons'/>
 <span>Launch</span>
-<p>Once your click launch <br />after 2-3 days, you recieve your <br />Website URL
+<p>Once you submit <br />after 2-3 days, you recieve your <br />Website URL Ready to use
 </p>
     </div>
     <div className='section'>
-<IoMdTrendingUp />
+<IoMdTrendingUp className='icons'/>
 <span>Grow</span>
-<p>Youre done! <br />Daily insights <br />And revenue per click!
+<p>Youre done! <br />Daily insights <br />revenue per click!
 </p>
     </div>
   </div>
+  <Accordioncomponent maintext="First" subtext="first sub text"/>
+
 </div>
 
 

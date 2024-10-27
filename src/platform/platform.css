@@ -208,21 +208,25 @@ font-weight: bolder;
         gap: 150px;
       }
 .section{
-font-size: 26px;
+    font-size: 40px;
 display: flex;
 flex-direction: column;
 gap: 10px;
 width: 250px;
-height: 180px;
+
 justify-content: flex-start;
 }
 .section span{
     font-weight: 600;
     transition: all 0.5 ease;
+
 }
 .section p {
-    color: rgb(163, 163, 163);
-    font-size: 18px;
+    color: rgb(53, 53, 53);
+    font-size: 22px;
+}
+.icons{
+
 }
 .section p span{
 
