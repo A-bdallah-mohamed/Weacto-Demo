@@ -41,8 +41,8 @@ const handleviewclick = () => {
 </div>
 
 <div className='faqsignin'>
-  <div className='faqbutton'>FAQ</div>
-  <div className='regbutton'>Register</div>
+  <div className='faqbutton'>Contact Us</div>
+  <div className='faqbutton'>Register</div>
 </div>
 
         </div>
@@ -99,14 +99,37 @@ const handleviewclick = () => {
 </p>
     </div>
   </div>
-  <Accordioncomponent maintext="First" subtext="first sub text"/>
 
 </div>
 
 
+<div className='container third'>
+  <h1>We’ve got all the answers you’re looking for!</h1>
+<Accordioncomponent maintext="First" subtext="first sub text"/>
+<Accordioncomponent maintext="First" subtext="first sub text"/>
+</div>
 
+<div className='container fourth'>
+  <p>Pricings</p>
+  <div className='pricings'>
+    <div className='basicprices'>
+      <div className='firstprice'>
+      <div className='basicprice'>
 
+</div>
+<div className='note'>
+  - 1 Month Free-Trial<br />- No Credit Card Required
+</div>
+      </div>
 
+<div className='basicprice'></div>
+<div className='basicprice'></div>
+    </div>
+    <div className='permaprice'>
+
+    </div>
+  </div>
+</div>
 
 
 
