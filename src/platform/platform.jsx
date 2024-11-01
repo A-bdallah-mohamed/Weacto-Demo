@@ -12,6 +12,8 @@ import { IoMdTrendingUp } from "react-icons/io";
 import { FaCheck } from "react-icons/fa";
 import logo from "../assets/platformimages/logo.png"
 import Accordioncomponent from '../components/accordioncomponent';
+import { IoCloseSharp } from "react-icons/io5";
+
 // clicking logo go to top of home page 
 
 export default function Platform() {
@@ -28,6 +30,7 @@ const handleviewclick = () => {
 }
   return (
     <div className='platform'>
+
     <div className='platformmainpage'>
       
       <div className='container firstpage'>
@@ -51,7 +54,7 @@ const handleviewclick = () => {
           <p>Grow Online</p>
           <p>Elevate your Brand</p>
           <button>Get Started Now</button>
-          <span>-- No credit card required</span>
+          <span>Free Trial – No Credit Card Required</span>
         </div>
 
 
@@ -77,7 +80,7 @@ const handleviewclick = () => {
 
 <div className='container secondpage'>
 <p className='maintextsecondpage'>
-  We do the work, <br />You stay focused on your customers.</p>
+Your online presence, <br />done and ready to grow.</p>
   <div className='sectionssecondpage'>
     <div className='section'>
 <LuPencilLine className='icons'/>
@@ -103,37 +106,157 @@ const handleviewclick = () => {
 </div>
 
 
+
+<div className='container fourth'>
+
+  <div className='pricings'>
+  <p>Plans</p>
+    <div className='basicprices'>
+      <div className='firstprice'>
+      <div className='basicprice'>
+<div className='planname'>Basic</div>
+<div className='subplantext'>No minimum commitment,<br /> pause or cancel anytime.</div>
+<div className='including'>
+  <div>
+  <div className='checked'><FaCheck /></div>
+  <div className='includingtext'>Access to standard templates</div>
+  </div>
+  <div>
+  <div className='unchecked'><IoCloseSharp  /></div>
+  <div className='includingtext'>Access to premium templates</div>
+  </div>
+  <div>
+  <div className='checked'><FaCheck /></div>
+  <div className='includingtext'>Basic customization options</div>
+  </div>
+
+  <div>
+  <div className='unchecked'><IoCloseSharp /></div>
+  <div className='includingtext'>Advanced customization options</div>
+  </div>
+
+  <div>
+  <div className='unchecked'><IoCloseSharp  /></div>
+  <div className='includingtext'>Analytics and performance tracking</div>
+  </div>
+  <div>
+  <div className='unchecked'><IoCloseSharp  /></div>
+  <div className='includingtext'>Additional storage and bandwidth</div>
+  </div>
+</div>
+<div className='price'>$3<sup>/Month</sup></div>
+<button>Get Started</button>
+</div>
+<div className='note firstnote'>
+  - 1 Month Free-Trial<br />- No Credit Card Required
+</div>
+      </div>
+<div className='firstprice'>
+  
+<div className='note secondnote'>
+Best choice for online stores.
+</div>
+<div className='basicprice'>
+  
+<div className='planname'>Premium</div>
+<div className='subplantext'>No minimum commitment,<br /> pause or cancel anytime.</div>
+<div className='including'>
+  <div>
+  <div className='checked'><FaCheck /></div>
+  <div className='includingtext'>Access to standard templates</div>
+  </div>
+  <div>
+  <div className='checked'><FaCheck /></div>
+  <div className='includingtext'>Access to premium templates</div>
+  </div>
+  <div>
+  <div className='checked'><FaCheck /></div>
+  <div className='includingtext'>Basic customization options</div>
+  </div>
+
+  <div>
+  <div className='checked'><FaCheck /></div>
+  <div className='includingtext'>Advanced customization options</div>
+  </div>
+
+  <div>
+  <div className='checked'><FaCheck /></div>
+  <div className='includingtext'>Analytics and performance tracking</div>
+  </div>
+  <div>
+  <div className='checked'><FaCheck /></div>
+  <div className='includingtext'>Additional storage and bandwidth</div>
+  </div>
+</div>
+<div className='price'>$10<sup>/Month</sup></div>
+<button>Get Started</button>
+</div>
+</div>
+<div className='basicprice'><div className='planname'>Premium</div>
+<div className='subplantext'>No minimum commitment,<br /> pause or cancel anytime.</div>
+<div className='including'>
+  <div>
+  <div className='checked'><FaCheck /></div>
+  <div className='includingtext'>Access to standard templates</div>
+  </div>
+  <div>
+  <div className='checked'><FaCheck /></div>
+  <div className='includingtext'>Access to premium templates</div>
+  </div>
+  <div>
+  <div className='checked'><FaCheck /></div>
+  <div className='includingtext'>Basic customization options</div>
+  </div>
+
+  <div>
+  <div className='checked'><FaCheck /></div>
+  <div className='includingtext'>Advanced customization options</div>
+  </div>
+
+  <div>
+  <div className='checked'><FaCheck /></div>
+  <div className='includingtext'>Analytics and performance tracking</div>
+  </div>
+  <div>
+  <div className='checked'><FaCheck /></div>
+  <div className='includingtext'>Additional storage and bandwidth</div>
+  </div>
+</div>
+<div className='price'>$84<sup>/Year</sup></div>
+<button>Get Started</button>
+<div className='save'>Save 30%!</div>
+</div>
+    </div>
+    <div className='permcont'>
+      <div className='permnote'><span><span>Click Here! SAVE 30% Per year!</span> 
+$128/Year</span>
+      </div>
+    <div className='permaprice'>
+<div className='permaleft'><div className='planname'>Innovate Plan<span>Tailored features based on individual business needs</span></div>
+<div className='customadvntgs'><div className='checked'><FaCheck /></div>
+<div className='includingtext'>24-Hour Dedicated Support</div>
+<div className='checked'><FaCheck /></div>
+<div className='includingtext'>Money-Back Guarantee</div>
+<div className='checked'><FaCheck /></div>
+<div className='includingtext'>Unlimited Custom Feature Requests</div></div>
+</div>
+<div className='permaright'><div className='price'>$15<sup>/Month</sup></div>
+<button>Get Started</button></div>
+    </div>
+    </div>
+  </div>
+</div>
+
 <div className='container third'>
   <h1>We’ve got all the answers you’re looking for!</h1>
 <Accordioncomponent maintext="First" subtext="first sub text"/>
 <Accordioncomponent maintext="First" subtext="first sub text"/>
 </div>
 
-<div className='container fourth'>
-  <p>Pricings</p>
-  <div className='pricings'>
-    <div className='basicprices'>
-      <div className='firstprice'>
-      <div className='basicprice'>
 
-</div>
-<div className='note'>
-  - 1 Month Free-Trial<br />- No Credit Card Required
-</div>
-      </div>
-
-<div className='basicprice'></div>
-<div className='basicprice'></div>
-    </div>
-    <div className='permaprice'>
-
-    </div>
-  </div>
-</div>
-
-
-
-
+<footer>
+  
+</footer>
 
 
 

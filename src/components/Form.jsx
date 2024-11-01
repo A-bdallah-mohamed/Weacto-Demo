@@ -13,7 +13,7 @@ import { MdCloudUpload } from "react-icons/md";
 import { MdAutoDelete } from "react-icons/md";
 import { IoMdCloudDone } from "react-icons/io";
 
-
+// add alt text for images
 
 export default function Form({
   newtext, position,setposition,formvisible, setformvisible, datatype, editable, setselectedItemId
