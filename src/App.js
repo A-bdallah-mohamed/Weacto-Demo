@@ -14,6 +14,10 @@ function App() {
           {websitesDB.map((website, inx) => (
             <Route path={`/${website.name}/*`} element={<website.component />} key={inx} />
           ))}
+         {   /*   
+                 <Route path="/Register" element={<RegistergPage />} />
+                 <Route path="/Log-in" element={<LogingPage />} /> 
+        */}
         </Routes>
       </Router>
     </EditbleStateProvider>

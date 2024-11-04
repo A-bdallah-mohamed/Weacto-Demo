@@ -13,6 +13,10 @@ import { FaCheck } from "react-icons/fa";
 import logo from "../assets/platformimages/logo.png"
 import Accordioncomponent from '../components/accordioncomponent';
 import { IoCloseSharp } from "react-icons/io5";
+import { FaFacebook } from "react-icons/fa";
+import { BiLogoInstagramAlt } from "react-icons/bi";
+import { RiTwitterXLine } from "react-icons/ri";
+
 
 // clicking logo go to top of home page 
 
@@ -188,7 +192,7 @@ Best choice for online stores.
   <div className='includingtext'>Additional storage and bandwidth</div>
   </div>
 </div>
-<div className='price'>$10<sup>/Month</sup></div>
+<div className='price'>$5<sup>/Month</sup></div>
 <button>Get Started</button>
 </div>
 </div>
@@ -222,14 +226,14 @@ Best choice for online stores.
   <div className='includingtext'>Additional storage and bandwidth</div>
   </div>
 </div>
-<div className='price'>$84<sup>/Year</sup></div>
+<div className='price'>$42<sup>/Year</sup></div>
 <button>Get Started</button>
 <div className='save'>Save 30%!</div>
 </div>
     </div>
     <div className='permcont'>
       <div className='permnote'><span><span>Click Here! SAVE 30% Per year!</span> 
-$128/Year</span>
+$84/Year</span>
       </div>
     <div className='permaprice'>
 <div className='permaleft'><div className='planname'>Innovate Plan<span>Tailored features based on individual business needs</span></div>
@@ -240,7 +244,7 @@ $128/Year</span>
 <div className='checked'><FaCheck /></div>
 <div className='includingtext'>Unlimited Custom Feature Requests</div></div>
 </div>
-<div className='permaright'><div className='price'>$15<sup>/Month</sup></div>
+<div className='permaright'><div className='price'>$10<sup>/Month</sup></div>
 <button>Get Started</button></div>
     </div>
     </div>
@@ -255,7 +259,23 @@ $128/Year</span>
 
 
 <footer>
-  
+  <div className='footercontent'>
+    <div className='footerup'>
+      <h1>BLOG</h1>
+      <h1>EXPLORE MORE</h1>
+      <h1>KNOW MORE</h1>
+      <h1>ABOUT</h1>
+    </div>
+    <div className='linebetween' />
+    <div className='footerdown'>
+      <p>© 2024 Weacctt. All rights reserved.</p>
+      <div className='socials'>
+      <FaFacebook className='social'/>
+<BiLogoInstagramAlt className='social'/>
+<RiTwitterXLine className='social'/>
+      </div>
+    </div>
+  </div>
 </footer>
 
 
