@@ -18,13 +18,14 @@ import { BiLogoInstagramAlt } from "react-icons/bi";
 import { RiTwitterXLine } from "react-icons/ri";
 
 
+
 // clicking logo go to top of home page 
 
 export default function Platform() {
 
   const {editable,seteditable} = useContext(EditbleStateContext)
 useEffect(()=>{
-console.log(editable)
+
 },[])
 const handleeditclick = () => {
   seteditable(true)
@@ -49,7 +50,9 @@ const handleviewclick = () => {
 
 <div className='faqsignin'>
   <div className='faqbutton'>Contact Us</div>
+  <Link to="/Register-Page" >
   <div className='faqbutton'>Register</div>
+  </Link>
 </div>
 
         </div>

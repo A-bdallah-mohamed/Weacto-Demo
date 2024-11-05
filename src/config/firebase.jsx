@@ -1,5 +1,12 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+ 
+// 1- email authentication
+// 2- email verification
+// 3- google authentication
+// 4- apple authentication 
+
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyAQPrVgzWNSHIyXFWqN-8EZ0vCuRfG6yPA",
