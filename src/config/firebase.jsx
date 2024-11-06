@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
- 
+ import {getAuth } from 'firebase/auth'
 // 1- email authentication
 // 2- email verification
 // 3- google authentication
@@ -18,5 +18,6 @@ const firebaseConfig = {
   measurementId: "G-GPZCCCBWN6"
 };
 
-export const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+export const auth = getAuth(app)
