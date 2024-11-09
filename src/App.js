@@ -4,6 +4,7 @@ import { EditbleStateProvider } from './GlobalStates.jsx/EditbleState';
 import Platform from './platform/platform';
 import websitesDB from './db/websiteDB';
 import Register from './platform/Register'
+import Confirmemail from './platform/confirmemail';
 function App() {
 
   return (
@@ -15,6 +16,7 @@ function App() {
             <Route path={`/${website.name}/*`} element={<website.component />} key={inx} />
           ))}
            <Route path="/Register-Page" element={<Register />} />
+           <Route path="/Confirm-email" element={<Confirmemail />} />
          {   /*   
                 
                  <Route path="/Log-in" element={<LogingPage />} /> 
