@@ -5,6 +5,7 @@ import Platform from './platform/platform';
 import websitesDB from './db/websiteDB';
 import Register from './platform/Register'
 import Confirmemail from './platform/confirmemail';
+import Myaccount from './platform/myaccount'
 function App() {
 
   return (
@@ -17,6 +18,7 @@ function App() {
           ))}
            <Route path="/Register-Page" element={<Register />} />
            <Route path="/Confirm-email" element={<Confirmemail />} />
+           <Route path="/My-Account" element={<Myaccount />} />
          {   /*   
                 
                  <Route path="/Log-in" element={<LogingPage />} /> 

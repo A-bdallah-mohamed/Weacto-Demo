@@ -1,4 +1,4 @@
-import React,{useContext, useEffect} from 'react'
+import React,{useContext, useEffect, useState} from 'react'
 import './platform.css'
 import { TbHexagonLetterW } from "react-icons/tb";
 import { Link } from 'react-router-dom'
@@ -16,14 +16,20 @@ import { IoCloseSharp } from "react-icons/io5";
 import { FaFacebook } from "react-icons/fa";
 import { BiLogoInstagramAlt } from "react-icons/bi";
 import { RiTwitterXLine } from "react-icons/ri";
-
+import { auth } from '../config/firebase';
 
 
 // clicking logo go to top of home page 
 
 export default function Platform() {
 
+
+  const [accountdropdown,setaccountdropdown] = useState(false)
   const {editable,seteditable} = useContext(EditbleStateContext)
+
+  const toggleaccountdropdown = () => {
+    setaccountdropdown(a => !a)
+  }
 useEffect(()=>{
 
 },[])
@@ -50,9 +56,21 @@ const handleviewclick = () => {
 
 <div className='faqsignin'>
   <div className='faqbutton'>Contact Us</div>
-  <Link to="/Register-Page" >
-  <div className='faqbutton'>Register</div>
-  </Link>
+
+  {auth.currentUser 
+  ?   
+  <div className='faqbutton'><div onClick={toggleaccountdropdown}>My account</div>
+  <div className={`accountdropdown ${accountdropdown && 'dropdownactive'}`}>
+  <Link to="/My-Account" ><div className='dropdownitem'>Account</div></Link>
+<div className='dropdownitem'>settings</div>
+<div className='dropdownitem'>Log out</div>
+    </div>
+    </div> 
+    
+  :  
+  <Link to="/Register-Page" > <div className='faqbutton'>Register</div>  </Link>}
+
+
 </div>
 
         </div>

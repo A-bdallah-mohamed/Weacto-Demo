@@ -552,3 +552,30 @@ gap: 10px;
     .social{
         transition: all 0.5s ease;
     }
+.accountdropdown{
+    position: absolute;
+    width: 65%;
+    border: 1px solid white;
+    border-radius: 3px;
+    gap: 2px;
+    display: flex;
+    flex-direction: column;
+    padding: 6px 0;
+    margin-top: -5px;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+.dropdownactive{
+    margin-top: 5px;
+    transition: all 0.5s ease;
+    opacity: 1;
+}
+.dropdownitem{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+.dropdownitem:hover{
+background-color: #252525;
+}
