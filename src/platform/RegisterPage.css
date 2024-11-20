@@ -173,3 +173,8 @@ border-radius: 100px;
     text-decoration: underline;
     cursor: pointer;
 }
+.otheroptions{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}

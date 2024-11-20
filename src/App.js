@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { EditbleStateProvider } from './GlobalStates.jsx/EditbleState';
 import Platform from './platform/platform';
 import websitesDB from './db/websiteDB';
-import Register from './platform/Register'
+import Signin from './platform/Signin'
 import Confirmemail from './platform/confirmemail';
 import Myaccount from './platform/myaccount'
 function App() {
@@ -16,7 +16,7 @@ function App() {
           {websitesDB.map((website, inx) => (
             <Route path={`/${website.name}/*`} element={<website.component />} key={inx} />
           ))}
-           <Route path="/Register-Page" element={<Register />} />
+           <Route path="/Signin-Page" element={<Signin />} />
            <Route path="/Confirm-email" element={<Confirmemail />} />
            <Route path="/My-Account" element={<Myaccount />} />
          {   /*   
