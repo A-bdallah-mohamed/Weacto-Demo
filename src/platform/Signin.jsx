@@ -10,7 +10,7 @@ import { AiFillEyeInvisible } from "react-icons/ai";
 import { MdErrorOutline } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
 import { create } from '@mui/material/styles/createTransitions'
-
+import { Link } from 'react-router-dom'
 // when rediricting to another page when log/sign in is done, only render other page content when user is valid 
 
 export default function Signin() {
@@ -135,10 +135,10 @@ const toggleshowpassword = () => {
     setshowpassword(showpassword => !showpassword)
 }
   return (
-    <div className='registerpage'>
+    <div className='signinpage'>
         <div className='registerside'>
             <img src={logo}></img>
-            <h1>Create your free account</h1>
+            <h1>Welcome Back!</h1>
             <div className='googlesignin' onClick={logout}>
                 <img src={googlelogo}/>
                 <h2>Sign in With Google</h2>
@@ -159,8 +159,12 @@ const toggleshowpassword = () => {
             </div>
             <button onClick={signin}>Continue</button>
             <div className='otheroptions'>
-     <p className='forgotpass'>Already have an Account?</p>
+              <Link to='/Register-Page'>
+     <p className='forgotpass'>Create a new Account?</p>
+     </Link>
+     <Link to='/Password-Reset'>
      <p className='forgotpass'>Forgot password?</p>
+     </Link>
      </div>
         </div>
         <div className='designside'></div>

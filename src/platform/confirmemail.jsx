@@ -13,22 +13,34 @@ export default function Confirmemail() {
     const [timer,settimer] = useState(0)
     const [istimerup,setistimerup] = useState(false)
 const [emailnotverified,setemailnotverified] = useState(false)
+const [tryagainlater,settryagainlater] = useState(false)
     const navigate = useNavigate();
 
-    const resendverificationemail = () =>{
-        if(timer <= 0){
-            sendEmailVerification(auth.currentUser);
-            
- setistimerup(true)
- settimer(120)
-  for(let i =0 ; i<120;i++){
-   setTimeout(() => {
-    settimer(timer => timer - 1)
-  },i * 1000);
-  }
-        }
+    const resendVerificationEmail = async () => {
+        if (timer <= 0 && auth.currentUser) {
+            try {
+                await sendEmailVerification(auth.currentUser);
+                settimer(120); // Start timer for 2 minutes
+                settryagainlater(false)
+                // Countdown logic
+                const interval = setInterval(() => {
+                    settimer((prevTimer) => {
+                        if (prevTimer <= 1) {
+                            clearInterval(interval);
+                            return 0;
+                        }
+                        return prevTimer - 1;
+                    });
+                }, 1000);
 
-    }
+            } catch (error) {
+                if (error.code == 'auth/too-many-requests'){
+                    settryagainlater(true)
+                }
+                console.error("Error sending email verification:", error.message);
+            }
+        }
+    };
 
 
 /* useEffect(()=>{
@@ -48,8 +60,11 @@ else{
   return (
     <div className='confirmpage'><LuMailWarning className='emailicon'/>
     <h1>Verify your email</h1>
-    <p>Please verify your email to continue. Once verified, click 'Confirm' below. <br /><span onClick={resendverificationemail} style={{cursor: timer == 0 ? 'pointer' : 'not-allowed' , textDecoration:'underline'}}>Resend </span>
-    {timer > 0 && <p> next attempt in {timer}s</p>}
+    <p>Please verify your email to continue. Once verified, click 'Confirm' below. <br /><span onClick={resendVerificationEmail} style={{cursor: timer == 0 ? 'pointer' : 'not-allowed' , textDecoration:'underline'}}>Resend</span>
+    {timer > 0 && <span className='messages'><br /> next attempt in {timer}s</span>}
+
+    {tryagainlater && <span className='messages'> <br />Too many requests have been sent. Please wait a while before trying again !</span>}
+
      </p>
 
         <button className='confirmemailbutton' onClick={confirm}>Confirm</button>

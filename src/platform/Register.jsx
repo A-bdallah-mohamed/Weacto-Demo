@@ -1,28 +1,26 @@
-import React, {useState,useEffect} from 'react'
+import React,{useState,useEffect} from 'react'
 import './RegisterPage.css'
 import logo from "../assets/platformimages/logo.png"
 import googlelogo from "../assets/platformimages/Google-Symbol.png"
 import applelogo from "../assets/platformimages/Apple-Logo.png"
-import {createUserWithEmailAndPassword , sendEmailVerification , signInWithEmailAndPassword  , fetchSignInMethodsForEmail ,signOut } from 'firebase/auth'
-import { auth } from '../config/firebase'
 import { AiFillEye } from "react-icons/ai";
 import { AiFillEyeInvisible } from "react-icons/ai";
 import { MdErrorOutline } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
-import { create } from '@mui/material/styles/createTransitions'
+import {createUserWithEmailAndPassword , sendEmailVerification , signInWithEmailAndPassword  , fetchSignInMethodsForEmail ,signOut } from 'firebase/auth'
+import { auth } from '../config/firebase'
 
-// when rediricting to another page when log/sign in is done, only render other page content when user is valid 
-
-export default function Signin() {
+export default function Register() {
+    const navigate = useNavigate();
+    const [invalidemail,setinvalidemail] = useState(false)
+const [missingpassword,setmissingpassword] = useState(false)
     const [email,setemail] = useState("")
 const [password,setpassword] = useState("")
-const [showpassword,setshowpassword] = useState(false)
-const [emailverified,setemailverified] = useState(false)
-const [invalidemail,setinvalidemail] = useState(false)
-const [missingpassword,setmissingpassword] = useState(false)
-const [weakpassword,setweakpassword] = useState(false)
-const navigate = useNavigate();
-
+    const [showpassword,setshowpassword] = useState(false)
+    const [emailinuse,setemailinuse] = useState(false)
+const toggleshowpassword = () => {
+    setshowpassword(showpassword => !showpassword)
+}
 const logout = async () => {
     try {
        await signOut(auth);
@@ -33,83 +31,47 @@ console.log(auth.currentUser.email)
     }
  };
 
- useEffect(()=>{
-  if(auth.currentUser){
-    console.log(auth.currentUser.email)
-  }
 
- },[email])
-
-
-
-
-/* 
-
- const signin = async () => {
-    try {
-      await signInWithEmailAndPassword(auth, email, password); // try signing in
-      
-      if (auth.currentUser.emailVerified) {   // if email is verified then navigate to the mmain page
-        navigate('/');
-        console.log("Email is verified, thank you <3");
-      } else {                                 // if not verified navigate to email confirmation page
-        navigate('/Confirm-email');
-        console.log("Account exists but email is not verified");
-      }
-    } catch (error) {                         // if catched error while signing in 
-      if (error.code === 'auth/user-not-found' || error.code === 'auth/invalid-credential') {   //if the error is acc not found or wrong info
-        try {                        // then try to create a new account
-          const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-          const user = userCredential.user;
-          
-          await sendEmailVerification(user);
-          navigate('/Confirm-email');
-          console.log("Created new account, please verify your email.");
-          
-        } catch (createError) {
-          if (createError.code === 'auth/weak-password'){
-            setweakpassword(true)
-            console.log("Error creating new account:", createError.code);
+ const register = async () => {
+    let success = false;
+    try{
+        const userCredential = await createUserWithEmailAndPassword(auth,email,password);
+        const user = userCredential.user;
+        setmissingpassword(false)
+        setinvalidemail(false)
+        setemailinuse(false)
+   
+        navigate('/Confirm-email')
+    }
+    catch(error){
+         if(error.code === 'auth/missing-password'){
+            setmissingpassword(true)
+            setinvalidemail(false)
           }
-    else{
-      console.log("Unexpected error:", createError.code);
+          else if(error.code === 'auth/invalid-email'){
+            setinvalidemail(true)
+            setmissingpassword(false)
+          }
+          else if(error.code === 'auth/email-already-in-use'){
+            setemailinuse(true)
+          }
+          else{
+            console.log(error)
+          }
     }
-        }
-        
-      }  else if (error.code === 'auth/missing-email') {
-        setmissingpassword(true);
-        console.log("Missing email");
-        
-      } else if (error.code === 'auth/invalid-email') {
-        setinvalidemail(true);
-        setmissingpassword(false);
-        console.log("Invalid email format");
-        
-      } else if (error.code === 'auth/missing-password') {
-        setmissingpassword(true);
-        setinvalidemail(false);
-        console.log("Missing password");
-        
-      } else {
-        console.log("Unexpected error:", error.code);
-      }
-    }
-  }; */
 
-useEffect(()=>{
+ }
+ useEffect(()=>{
     if(auth.currentUser){
         console.log(auth.currentUser.email)
     }
 
-},[])
-const toggleshowpassword = () => {
-    setshowpassword(showpassword => !showpassword)
-}
+ },[email])
   return (
     <div className='registerpage'>
-        <div className='registerside'>
-            <img src={logo}></img>
-            <h1>Create your free account</h1>
+    <div className='registerside'>
+                    <img src={logo}></img>
+            <h1>Welcome To Weacctt</h1>
             <div className='googlesignin' onClick={logout}>
                 <img src={googlelogo}/>
                 <h2>Sign in With Google</h2>
@@ -126,11 +88,14 @@ const toggleshowpassword = () => {
             <input  placeholder='Enter Password' onChange={(e)=>setpassword(e.target.value)} type={`${showpassword ? 'text' : 'password'}`} />
             {showpassword ?     <AiFillEyeInvisible className='visibleicon' onClick={toggleshowpassword}/> :  <AiFillEye className='visibleicon' onClick={toggleshowpassword}/>}
             {missingpassword &&  <div className='emailinvalid'> <MdErrorOutline />Missing password!</div> }
+            {emailinuse &&  <div className='emailinvalid'> <MdErrorOutline />Email already exists!</div> }
+          
             </div>
-            <button onClick={signin}>Continue</button>
-     <p className='forgotpass'>Forgot password?</p>
-        </div>
-        <div className='designside'></div>
+            <button onClick={register}>Continue</button>
+            <div className='otheroptions'>
+     <p className='forgotpass'>Already a member? Log in</p>
+     </div>
+    </div>
     </div>
   )
 }

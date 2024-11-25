@@ -6,6 +6,9 @@ import websitesDB from './db/websiteDB';
 import Signin from './platform/Signin'
 import Confirmemail from './platform/confirmemail';
 import Myaccount from './platform/myaccount'
+import Register from './platform/Register';
+import PasswordReset from './platform/PasswordReset';
+import Passwordemailsent from './platform/passwordemailsent';
 function App() {
 
   return (
@@ -17,8 +20,11 @@ function App() {
             <Route path={`/${website.name}/*`} element={<website.component />} key={inx} />
           ))}
            <Route path="/Signin-Page" element={<Signin />} />
+           <Route path="/Register-Page" element={<Register />} />
            <Route path="/Confirm-email" element={<Confirmemail />} />
            <Route path="/My-Account" element={<Myaccount />} />
+           <Route path="/Password-Reset" element={<PasswordReset />} />
+           <Route path="/Password-Reset-email-sent" element={<Passwordemailsent />} />
          {   /*   
                 
                  <Route path="/Log-in" element={<LogingPage />} /> 

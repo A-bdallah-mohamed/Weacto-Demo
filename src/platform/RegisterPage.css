@@ -1,4 +1,4 @@
-.registerpage{
+.signinpage{
     display: flex;
     width: 100vw;
     height: 100vh;
@@ -13,6 +13,16 @@
     justify-content: center;
     gap: 5px;
 }
+.passemailsentside{
+    width: 50%;
+    background-color: black;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+padding-top: 100px;
+    gap: 5px;
+}
 .designside{
     width: 50%;
     height: 100%;
@@ -23,11 +33,22 @@
     font-family: "Afacad Flux", sans-serif;
     margin-top: 25px;
 }
+.passemailsentside h1{
+    color: white;
+    font-family: "Afacad Flux", sans-serif;
+    margin-top: 25px;
+}
+
 .registerside img{
 width: 50px;
 height: auto;
 margin-top: -25px;
 }
+.passemailsentside img{
+    width: 50px;
+    height: auto;
+    margin-top: -25px;
+    }
 .registerside input{
     width: 350px;
     padding: 10px 15px;
@@ -35,6 +56,7 @@ margin-top: -25px;
     background-color: rgb(43, 43, 43);
     color: white;
 }
+
 .registerside button{
     width: 350px;
     height: 40px;
@@ -44,7 +66,16 @@ margin-top: -25px;
     border: none;
     transition: all 0.3s ease;
 }
-.registerside button:hover{
+.passemailsentside button{
+    width: 350px;
+    height: 40px;
+    border-radius: 100px;
+    background-color: white;
+    font-size: 18px;
+    border: none;
+    transition: all 0.3s ease;
+}
+.registerside button:hover,.passemailsentside button:hover{
     background-color: rgb(223, 223, 223);
     transition: all 0.3s ease;
 }
@@ -177,4 +208,35 @@ border-radius: 100px;
     display: flex;
     flex-direction: row;
     gap: 20px;
+}
+.registerpage{
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}
+.messages{
+    font-weight: 400;
+    color: rgb(216, 206, 65);
+}
+.registerside h4,h1{
+    margin: 0;
+}
+h2{
+    text-align: center;
+    font-weight: 200;
+}
+h2 span{
+    font-weight: bold;
+}
+.buttonspassemailsent{
+    display: flex;
+    gap: 20px;
+}
+.buttonspassemailsent button{
+    width: 150px;
+font-size: 20px;
 }
