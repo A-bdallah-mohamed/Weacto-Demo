@@ -1,17 +1,17 @@
 import React, {useState,useEffect} from 'react'
 import './RegisterPage.css'
 import logo from "../assets/platformimages/logo.png"
-import googlelogo from "../assets/platformimages/Google-Symbol.png"
-import applelogo from "../assets/platformimages/Apple-Logo.png"
-import {createUserWithEmailAndPassword , sendEmailVerification , signInWithEmailAndPassword  , fetchSignInMethodsForEmail ,signOut } from 'firebase/auth'
+
+import {signInWithEmailAndPassword} from 'firebase/auth'
 import { auth } from '../config/firebase'
 import { AiFillEye } from "react-icons/ai";
 import { AiFillEyeInvisible } from "react-icons/ai";
 import { MdErrorOutline } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
-import { create } from '@mui/material/styles/createTransitions'
 import { Link } from 'react-router-dom'
-// when rediricting to another page when log/sign in is done, only render other page content when user is valid 
+import Signinwithgoogle from '../components/Signinwithgoogle'
+import Signinwithfacebook from '../components/Signinwithfacebook'
+// when rediricting to another page when log/sign in is done, only render other page content when user email is valid 
 
 export default function Signin() {
     const [email,setemail] = useState("")
@@ -22,23 +22,6 @@ const [invalidemail,setinvalidemail] = useState(false)
 const [missingpassword,setmissingpassword] = useState(false)
 const [wrongdata,setwrongdata] = useState(false)
 const navigate = useNavigate();
-
-const logout = async () => {
-    try {
-       await signOut(auth);
-       console.log("User signed out successfully.");
-console.log(auth.currentUser.email)
-    } catch (error) {
-       console.error("Error signing out:", error);
-    }
- };
-
- useEffect(()=>{
-  if(auth.currentUser){
-    console.log(auth.currentUser.email)
-  }
-
- },[email])
 
 
 const signin = async () => {
@@ -76,54 +59,6 @@ const signin = async () => {
   }
 }
 
-/* 
-
- const signin = async () => {
-    try {
-      await signInWithEmailAndPassword(auth, email, password); // try signing in
-      
-      if (auth.currentUser.emailVerified) {   // if email is verified then navigate to the mmain page
-        navigate('/');
-        console.log("Email is verified, thank you <3");
-      } else {                                 // if not verified navigate to email confirmation page
-        navigate('/Confirm-email');
-        console.log("Account exists but email is not verified");
-      }
-    } catch (error) {                         // if catched error while signing in 
-      if (error.code === 'auth/user-not-found' || error.code === 'auth/invalid-credential') {   //if the error is acc not found or wrong info
-        try {                        // then try to create a new account
-    
-          console.log("no account matches");
-          
-        } catch (createError) {
-          if (createError.code === 'auth/weak-password'){
-            setweakpassword(true)
-            console.log("Error creating new account:", createError.code);
-          }
-    else{
-      console.log("Unexpected error:", createError.code);
-    }
-        }
-        
-      }  else if (error.code === 'auth/missing-email') {
-        setmissingpassword(true);
-        console.log("Missing email");
-        
-      } else if (error.code === 'auth/invalid-email') {
-        setinvalidemail(true);
-        setmissingpassword(false);
-        console.log("Invalid email format");
-        
-      } else if (error.code === 'auth/missing-password') {
-        setmissingpassword(true);
-        setinvalidemail(false);
-        console.log("Missing password");
-        
-      } else {
-        console.log("Unexpected error:", error.code);
-      }
-    }
-  }; */
 
 useEffect(()=>{
     if(auth.currentUser){
@@ -139,14 +74,11 @@ const toggleshowpassword = () => {
         <div className='registerside'>
             <img src={logo}></img>
             <h1>Welcome Back!</h1>
-            <div className='googlesignin' onClick={logout}>
-                <img src={googlelogo}/>
-                <h2>Sign in With Google</h2>
-            </div>
-            <div className='applesignin googlesignin '>
-                <img src={applelogo} />
-                <h2>Sign in With Apple</h2>
-            </div>
+
+   <Signinwithgoogle />
+
+   <Signinwithfacebook />
+        
             <div className='or'>or</div>
             <input  placeholder='Enter email address or Phone number' onChange={(e)=>setemail(e.target.value)}/>
             {invalidemail &&  <div className='emailinvalid'> <MdErrorOutline />Invalid email format!</div> }

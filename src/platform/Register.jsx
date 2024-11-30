@@ -1,15 +1,15 @@
 import React,{useState,useEffect} from 'react'
 import './RegisterPage.css'
 import logo from "../assets/platformimages/logo.png"
-import googlelogo from "../assets/platformimages/Google-Symbol.png"
-import applelogo from "../assets/platformimages/Apple-Logo.png"
+import Signinwithfacebook from '../components/Signinwithfacebook';
 import { AiFillEye } from "react-icons/ai";
 import { AiFillEyeInvisible } from "react-icons/ai";
 import { MdErrorOutline } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
-import {createUserWithEmailAndPassword , sendEmailVerification , signInWithEmailAndPassword  , fetchSignInMethodsForEmail ,signOut } from 'firebase/auth'
+import {createUserWithEmailAndPassword , sendEmailVerification , signInWithEmailAndPassword  , fetchSignInMethodsForEmail ,signOut , GoogleAuthProvider , signInWithPopup , OAuthProvider } from 'firebase/auth'
 import { auth } from '../config/firebase'
-
+import { Link } from 'react-router-dom';
+import Signinwithgoogle from '../components/Signinwithgoogle'
 export default function Register() {
     const navigate = useNavigate();
     const [invalidemail,setinvalidemail] = useState(false)
@@ -72,14 +72,9 @@ console.log(auth.currentUser.email)
     <div className='registerside'>
                     <img src={logo}></img>
             <h1>Welcome To Weacctt</h1>
-            <div className='googlesignin' onClick={logout}>
-                <img src={googlelogo}/>
-                <h2>Sign in With Google</h2>
-            </div>
-            <div className='applesignin googlesignin '>
-                <img src={applelogo} />
-                <h2>Sign in With Apple</h2>
-            </div>
+<Signinwithgoogle />
+
+<Signinwithfacebook />
             <div className='or'>or</div>
             <input  placeholder='Enter email address or Phone number' onChange={(e)=>setemail(e.target.value)}/>
             {invalidemail &&  <div className='emailinvalid'> <MdErrorOutline />Invalid email format!</div> }
@@ -93,7 +88,9 @@ console.log(auth.currentUser.email)
             </div>
             <button onClick={register}>Continue</button>
             <div className='otheroptions'>
+              <Link to='/Signin-Page'>
      <p className='forgotpass'>Already a member? Log in</p>
+     </Link>
      </div>
     </div>
     </div>

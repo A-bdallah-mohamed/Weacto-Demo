@@ -18,11 +18,13 @@ import { BiLogoInstagramAlt } from "react-icons/bi";
 import { RiTwitterXLine } from "react-icons/ri";
 import { auth } from '../config/firebase';
 import {signOut} from 'firebase/auth'
+import { MdDiscount } from "react-icons/md";
 
 // clicking logo go to top of home page 
 
 export default function Platform() {
 
+  const [promocode,setpromocode] = useState(null)
 
   const [accountdropdown,setaccountdropdown] = useState(false)
   const {editable,seteditable} = useContext(EditbleStateContext)
@@ -190,7 +192,7 @@ Your online presence, <br />done and ready to grow.</p>
   <div className='includingtext'>Additional storage and bandwidth</div>
   </div>
 </div>
-<div className='price'>$3<sup>/Month</sup></div>
+<div className='price'>$1.49<sup>/Month</sup></div>
 <button>Get Started</button>
 </div>
 <div className='note firstnote'>
@@ -234,7 +236,7 @@ Best choice for online stores.
   <div className='includingtext'>Additional storage and bandwidth</div>
   </div>
 </div>
-<div className='price'>$5<sup>/Month</sup></div>
+<div className='price'>$3<sup>/Month</sup></div>
 <button>Get Started</button>
 </div>
 </div>
@@ -268,28 +270,21 @@ Best choice for online stores.
   <div className='includingtext'>Additional storage and bandwidth</div>
   </div>
 </div>
-<div className='price'>$42<sup>/Year</sup></div>
+<div className='price'>$30<sup>/Year</sup></div>
 <button>Get Started</button>
-<div className='save'>Save 30%!</div>
+<div className='save'>Save 16%!</div>
 </div>
     </div>
-    <div className='permcont'>
-      <div className='permnote'><span><span>Click Here! SAVE 30% Per year!</span> 
-$84/Year</span>
-      </div>
-    <div className='permaprice'>
-<div className='permaleft'><div className='planname'>Innovate Plan<span>Tailored features based on individual business needs</span></div>
-<div className='customadvntgs'><div className='checked'><FaCheck /></div>
-<div className='includingtext'>24-Hour Dedicated Support</div>
-<div className='checked'><FaCheck /></div>
-<div className='includingtext'>Money-Back Guarantee</div>
-<div className='checked'><FaCheck /></div>
-<div className='includingtext'>Unlimited Custom Feature Requests</div></div>
-</div>
-<div className='permaright'><div className='price'>$10<sup>/Month</sup></div>
-<button>Get Started</button></div>
-    </div>
-    </div>
+    <div className='promocontainer'>
+<div className='promo'>
+  <span><MdDiscount />
+ <span>Have a promo code ?</span> </span>
+ <div className='promoinputbutton'>
+ <input placeholder='enter your promo code'/> 
+ <button>Apply</button>
+ </div>
+ </div>
+ </div>
   </div>
 </div>
 

@@ -1,8 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import './RegisterPage.css'
 import logo from "../assets/platformimages/logo.png"
-import googlelogo from "../assets/platformimages/Google-Symbol.png"
-import applelogo from "../assets/platformimages/Apple-Logo.png"
+import { Link } from 'react-router-dom';
 import { AiFillEye } from "react-icons/ai";
 import { AiFillEyeInvisible } from "react-icons/ai";
 import { MdErrorOutline } from "react-icons/md";
@@ -62,6 +61,13 @@ console.log(email)
 
             <button onClick={sendPasswordResetLink}>Search</button>
             <div className='otheroptions'>
+            
+     <Link to='/Signin-Page'>
+     <p className='forgotpass'>Login</p>
+     </Link>
+     <Link to='/Register-Page'>
+     <p className='forgotpass'>Create a new Account</p>
+     </Link>
      </div>
     </div>
     </div>

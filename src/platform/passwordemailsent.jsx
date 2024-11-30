@@ -1,8 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import './RegisterPage.css'
 import logo from "../assets/platformimages/logo.png"
-import googlelogo from "../assets/platformimages/Google-Symbol.png"
-import applelogo from "../assets/platformimages/Apple-Logo.png"
+
 import { AiFillEye } from "react-icons/ai";
 import { AiFillEyeInvisible } from "react-icons/ai";
 import { MdErrorOutline } from "react-icons/md";
@@ -23,7 +22,7 @@ export default function Passwordemailsent() {
                     <img src={logo}></img>
     
         <h1>Email sent</h1>
-<h2>We sent an email to <span>{e_mail}</span>! if this email is<br /> connected to a Weacctt account, you will be able to reset your <br />password.</h2>
+<h3>We sent an email to <span>{e_mail}</span>! if this email is<br /> connected to a Weacctt account, you will be able to reset your <br />password.</h3>
 
 
 
