@@ -28,9 +28,6 @@ align-items: center;
     max-width: 1380px;
     max-width: 100vw;
     }
-.buttons{
-    display: none;
-}
 .maintitle{
     font-size: 70px;
     font-weight: bold;

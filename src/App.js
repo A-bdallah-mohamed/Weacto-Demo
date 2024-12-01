@@ -9,6 +9,7 @@ import Myaccount from './platform/myaccount'
 import Register from './platform/Register';
 import PasswordReset from './platform/PasswordReset';
 import Passwordemailsent from './platform/passwordemailsent';
+import Promocode from './platform/Promocode';
 function App() {
 
   return (
@@ -25,6 +26,7 @@ function App() {
            <Route path="/My-Account" element={<Myaccount />} />
            <Route path="/Password-Reset" element={<PasswordReset />} />
            <Route path="/Password-Reset-email-sent" element={<Passwordemailsent />} />
+           <Route path="/Promo-code-prices" element={<Promocode />} />
          {   /*   
                 
                  <Route path="/Log-in" element={<LogingPage />} /> 

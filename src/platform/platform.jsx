@@ -1,7 +1,7 @@
 import React,{useContext, useEffect, useState} from 'react'
 import './platform.css'
 import { TbHexagonLetterW } from "react-icons/tb";
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import { EditbleStateContext } from '../GlobalStates.jsx/EditbleState'
 import { LuLayoutTemplate } from "react-icons/lu";
 import { IoPricetag } from "react-icons/io5";
@@ -19,10 +19,12 @@ import { RiTwitterXLine } from "react-icons/ri";
 import { auth } from '../config/firebase';
 import {signOut} from 'firebase/auth'
 import { MdDiscount } from "react-icons/md";
-
+import { useNavigate } from 'react-router-dom';
 // clicking logo go to top of home page 
 
 export default function Platform() {
+
+  const navigate = useNavigate();
 
   const [promocode,setpromocode] = useState(null)
 
@@ -35,7 +37,7 @@ const [account,setaccount] = useState(null)
 useEffect(()=>{
   auth.onAuthStateChanged((user) => {
     setaccount(user);
-   
+   console.log(account)
   });
 },[auth])
 const handleeditclick = () => {
@@ -54,14 +56,11 @@ try{
   }
 }
 
-useEffect(()=>{
-if(auth.currentUser){
-  console.log('signed in')
+const enterpromocode = () => {
+  if(promocode == 'abdola'){
+    navigate('/Promo-code-prices')
+  }
 }
-else{
-  console.log("not signed in")
-}
-},[auth])
   return (
     <div className='platform'>
 
@@ -270,7 +269,7 @@ Best choice for online stores.
   <div className='includingtext'>Additional storage and bandwidth</div>
   </div>
 </div>
-<div className='price'>$30<sup>/Year</sup></div>
+<div className='price'>$30.24<sup>/Year</sup></div>
 <button>Get Started</button>
 <div className='save'>Save 16%!</div>
 </div>
@@ -280,8 +279,8 @@ Best choice for online stores.
   <span><MdDiscount />
  <span>Have a promo code ?</span> </span>
  <div className='promoinputbutton'>
- <input placeholder='enter your promo code'/> 
- <button>Apply</button>
+ <input placeholder='enter your promo code' onChange={(e)=>setpromocode(e.target.value)}/> 
+ <button onClick={enterpromocode}>Apply</button>
  </div>
  </div>
  </div>
@@ -322,15 +321,6 @@ Best choice for online stores.
 
 
 
-   <div className='buttons'>
-   <Link to='/landingpage1' onClick={handleviewclick}>
-   <button className='viewbutton websitebutton'>View</button>
-   </Link>
-   <Link to='/landingpage1' onClick={handleeditclick}>
-   <button className='editbutton websitebutton' >Edit</button>
-   </Link>
-   </div>
-   
     </div>
     </div>
   )
