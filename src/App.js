@@ -10,6 +10,7 @@ import Register from './platform/Register';
 import PasswordReset from './platform/PasswordReset';
 import Passwordemailsent from './platform/passwordemailsent';
 import Promocode from './platform/Promocode';
+
 function App() {
 
   return (

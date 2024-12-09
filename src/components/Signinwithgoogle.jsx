@@ -23,7 +23,7 @@ export default function Signinwithgoogle() {
   return (
     <div className='googlesignin' onClick={signinwithgoogle}>
     <img src={googlelogo}/>
-    <h2>Sign in With Google</h2>
+    <h2>Continue With Google</h2>
 </div>
   )
 }

@@ -1,13 +1,13 @@
 import React, {useEffect}from 'react'
 import { BrowserRouter as Router , Route , Routes} from 'react-router-dom';
 import { Switch , Link} from 'react-router-dom';
-import Website1 from './website1';
+import Website1 from './Editingtest';
 import { FaBackward } from "react-icons/fa";
 import { useState } from 'react';
 import { useContext } from 'react';
 import { EditbleStateContext } from '../../GlobalStates.jsx/EditbleState'
-import './website1.css';
-export default function Website1routes() {
+import './editingtest.css';
+export default function Editingtestroutes() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);

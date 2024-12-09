@@ -18,6 +18,7 @@ const [missingpassword,setmissingpassword] = useState(false)
 const [password,setpassword] = useState("")
     const [showpassword,setshowpassword] = useState(false)
     const [emailinuse,setemailinuse] = useState(false)
+    const [weakpassword,setweakpassword] = useState(false)
 const toggleshowpassword = () => {
     setshowpassword(showpassword => !showpassword)
 }
@@ -40,7 +41,7 @@ console.log(auth.currentUser.email)
         setmissingpassword(false)
         setinvalidemail(false)
         setemailinuse(false)
-   
+        setweakpassword(false)
         navigate('/Confirm-email')
     }
     catch(error){
@@ -54,6 +55,9 @@ console.log(auth.currentUser.email)
           }
           else if(error.code === 'auth/email-already-in-use'){
             setemailinuse(true)
+          }
+          else if(error.code === 'auth/weak-password'){
+            setweakpassword(true)
           }
           else{
             console.log(error)
@@ -84,7 +88,7 @@ console.log(auth.currentUser.email)
             {showpassword ?     <AiFillEyeInvisible className='visibleicon' onClick={toggleshowpassword}/> :  <AiFillEye className='visibleicon' onClick={toggleshowpassword}/>}
             {missingpassword &&  <div className='emailinvalid'> <MdErrorOutline />Missing password!</div> }
             {emailinuse &&  <div className='emailinvalid'> <MdErrorOutline />Email already exists!</div> }
-          
+          {weakpassword && <div className='emailinvalid'>Password should be at least 6 characters.</div>}
             </div>
             <button onClick={register}>Continue</button>
             <div className='otheroptions'>

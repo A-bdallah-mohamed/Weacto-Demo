@@ -5,7 +5,7 @@ import { MdLaptopChromebook } from "react-icons/md";
 import { MdOutlineArtTrack } from "react-icons/md";
 import { MdDeveloperBoard } from "react-icons/md";
 import { LiaHandshake } from "react-icons/lia";
-import './website1.css';
+import './editingtest.css';
 import { Link } from 'react-router-dom';
 import { useRef , useState , useEffect } from 'react';
 import UseChangetext from '../../custom hooks/UseChangetext';
@@ -14,7 +14,7 @@ import UseChangeButton from '../../custom hooks/UseChangeButton';
 import UseChangeImage from '../../custom hooks/UseChangeImage';
 import { useContext } from 'react';
 import { EditbleStateContext } from '../../GlobalStates.jsx/EditbleState'
-export default function Website1() {
+export default function Editingtest() {
 
 
 // Add the jsx lines into the "items" array

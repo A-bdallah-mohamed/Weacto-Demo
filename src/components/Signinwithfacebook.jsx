@@ -9,7 +9,7 @@ export default function Signinwithfacebook() {
 
     const provider = new FacebookAuthProvider();
 
-    const signinwithapple = async () => {
+    const signinwithfacebook = async () => {
         try {
            const result = await signInWithPopup(auth , provider)
  const user =  result.user 
@@ -20,9 +20,9 @@ export default function Signinwithfacebook() {
         }
     }
   return (
-    <div className='applesignin googlesignin ' onClick={signinwithapple}>
+    <div className='applesignin googlesignin ' onClick={signinwithfacebook}>
                 <img src={applelogo} />
-                <h2>Sign in With Facebook</h2>
+                <h2>Continue With Facebook</h2>
             </div>
   )
 }

@@ -12,13 +12,15 @@ setisopen(prev => !prev)
     <div className='accordioncontainer'>
         <div className='accordion' >
 
-            <div className='maintext'  onClick={clickhandle}>
+            <div className={`maintext ${isopen ? 'show' : ''}`}  onClick={clickhandle}>
+                <div className='H'>
                 <p>{maintext}</p>{isopen ? <p>-</p> : <p>+</p>}
                 </div>
-                {isopen && 
 <div className='subtext'>
     <p>{subtext}</p>
-</div>}
+</div>
+                </div>
+
             </div>
 
             </div>

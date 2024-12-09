@@ -1,5 +1,5 @@
 import React from 'react'
-import Website1routes from '../websites/website1/website1routes';
+import Website1routes from '../websites/website1/Editingtestroutes';
 
 
 const Websites = [
