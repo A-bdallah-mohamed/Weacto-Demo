@@ -204,11 +204,13 @@ display: flex;
 align-items: center;
 justify-content: center;
 background-color: rgb(237, 237, 237);
+cursor: pointer;
 }
 .Ecommerce1-ProductImageContainer img{
     max-width: 100%;
     height: auto;
     max-height: 380px;
+
 }
 .Ecommerce1-BestSellersProducts{
     display: flex;
@@ -249,4 +251,46 @@ background-color: rgb(237, 237, 237);
 .Ecommerce-footer img{
     max-height: 20px;
     margin-bottom: -10px;
+    cursor: pointer;
+}
+.Ecommerce1-CategorieCard{
+    height: 300px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 1px 1px 10px gray;
+    border-radius: 10px;
+    transition: all 0.5s ease;
+}
+.Ecommerce1-CategorieCard:hover{
+transform: rotate(-5deg);
+cursor: pointer;
+transition: all 0.5s ease;
+width: 220px;
+height: 320px;
+}
+.Ecommerce1-CategorieCardImage{
+width: 100%;
+height: 66%;
+border-radius: 10px;
+background-size: cover;
+}
+.Ecommerce1-CategorieCardText{
+    display: flex;
+padding: 10px 0 0 0;
+    justify-content: center;
+    width: 100%;
+    height: 33%;
+    font-size: 30px;
+    font-weight: bolder;
+}
+.Ecommerce1-CategoriesSection{
+    width: 1380px;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
 }

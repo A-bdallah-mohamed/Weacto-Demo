@@ -13,6 +13,8 @@ import { GiTakeMyMoney } from "react-icons/gi";
 import { BiSolidOffer } from "react-icons/bi";
 import Footer from './Footer';
 import Product from './product';
+import hoodieCategorie from './assets/Hoodies.jpg'
+import CategorySection from './CategorySection';
 export default function Ecommerce1() {
     const [text1 , istext1inview] = useIntersection(true)
     const [text2 , istext2inview] = useIntersection(true)
@@ -21,7 +23,7 @@ export default function Ecommerce1() {
 
     // Add categories before the best sellers section          ---------- Important
 
-    
+
   return (
     <div className='Ecommerce1-container'>
 
@@ -91,6 +93,11 @@ export default function Ecommerce1() {
 </div>
                 </div>
             </div>
+            <div className='Ecommerce1-Bestsellers'>
+                Categories
+            </div>
+            
+<CategorySection categories={7}/>
 
             <div className='Ecommerce1-Bestsellers'>
                 Best Sellers
