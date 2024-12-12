@@ -1,0 +1,252 @@
+.Ecommerce1-container header{
+height: 90px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+.Ecommerce1-container{
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+}
+.Ecommerce1-container header img{
+    max-height: 50px;
+    width: auto;
+}
+.Ecommerce1-Icon:hover{
+color: rgb(106, 106, 106);
+cursor: pointer;
+}
+.Ecommerce1-MainSection{
+    height: 650px;
+    background-color: #f0e0ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px  ;
+}
+.Ecommerce1-img1{
+    max-height: 100%;
+    opacity: 0;
+transition: all 0.5s ease; 
+transform:translateY(300px);
+}
+.Ecommerce1-img1inview{
+    max-height: 100%;
+    opacity: 1;
+transition: all 0.5s ease; 
+transform:translateY(0px); 
+}
+.Ecommerce1-MainSectionText{
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+}
+.Ecommerce1-text1{
+font-size: 40px;
+margin: 0 0 10px 0;
+font-weight: 400;  
+opacity: 0;
+transition: all 0.5s ease; 
+transform:translateY(150px);
+}
+.Ecommerce1-text1inview{
+    font-size: 40px;
+    margin: 0 0 10px 0;
+    font-weight: 400;  
+    opacity: 1;
+    transition: all 0.5s ease; 
+    transform:translateY(0px);
+    transition-delay: 0.3s;
+    }
+.Ecommerce1-text2{
+    font-size: 80px;
+text-align: left;  
+font-family: "Afacad Flux", sans-serif;
+font-weight: 400; 
+opacity: 0;
+transition: all 0.5s ease; 
+transform:translateY(150px);
+}
+.Ecommerce1-text2inview{
+    font-size: 80px;
+    text-align: left;  
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 400; 
+    opacity: 1;
+    transition: all 0.5s ease; 
+    transform:translateY(0px);
+    transition-delay: 0.6s;
+}
+.Ecommerce1-button1{
+    border:1px solid black;
+    border-radius: 0;
+    background-color: transparent;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: 400;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+transition: all 0.5s ease; 
+transform:translateY(100px);
+}
+.Ecommerce1-button1inview{
+    border:1px solid black;
+    border-radius: 0;
+    background-color: transparent;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: 400;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    opacity: 1;
+transition: transform 0.5s ease 0.9s, opacity 0.5s ease 0.9s,color 0.5s ease; 
+transform:translateY(0px);
+
+}
+.Ecommerce1-MainSectionText button::before{
+    content: "";
+    left: 0;
+    width: 0%;
+    position: absolute;
+    background-color: blueviolet;
+    height: 100%;
+    transition: all 0.5s ease;
+    z-index: -1;
+}
+.Ecommerce1-MainSectionText button:hover::before{
+    left: 0%;
+    width: 100%;
+    transition: all 0.5 ease;
+}
+.Ecommerce1-MainSectionText button:hover{
+    color: white;
+}
+.Ecommerce1-Features{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1380px;
+    height: auto;
+    padding: 50px 50px;
+    flex-wrap: wrap; 
+    overflow-wrap: break-word; 
+    gap: 15px;
+}
+.Ecommerce1-Nonmainsections{
+display: flex;
+align-items: center;
+justify-content: center;
+width: 100%;
+flex-direction: column;
+}
+.Ecommerce1-Feature{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    font-size: 25px;
+}
+.Ecommerce1-Feature h6,.Ecommerce1-Feature h4{
+    margin: 0;
+}
+.Ecommerce1-FeatureIcon{
+    font-size: 40px;
+}
+.Ecommerce1-Bestsellers{
+    font-size: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 40px 0 40px 0;
+}
+.Ecommerce1-Bestsellers::after,.Ecommerce1-Bestsellers::before{
+    content: "";
+    width: 120px;
+    border: 2px solid black;
+}
+.Ecommerce1-product{
+    width: 300px;
+    height: 500px;
+    background-color: whtie;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 1px 1px 10px gray;
+}
+.Ecommerce1-product p{
+    font-size: 25px;
+    margin-top: 15px;
+}
+.Ecommerce1-product span{
+font-weight: 400;
+color: black;
+font-size: 21px;
+margin-top: 20px;
+display: flex;
+width: 100%;
+padding: 0 50px 0 50px;
+justify-content: space-between;
+align-items: center;
+}
+.Ecommerce1-ProductImageContainer{
+width: 300;
+height: 380px;
+display: flex;
+align-items: center;
+justify-content: center;
+background-color: rgb(237, 237, 237);
+}
+.Ecommerce1-ProductImageContainer img{
+    max-width: 100%;
+    height: auto;
+    max-height: 380px;
+}
+.Ecommerce1-BestSellersProducts{
+    display: flex;
+    gap: 60px;
+    flex-wrap: wrap; 
+    max-width: 1380px;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0 50px 0;
+}
+.Ecommerce1-AddtoFav{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:#2ec7a8;
+    border-radius: 3px;
+    color: white;
+    font-weight: bold;
+    font-size: 35px;
+}
+.Ecommerce1-AddtoFav:hover{
+    cursor: pointer;
+    background-color: #2ec7a87d;
+}
+.Ecommerce-footer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    height: 100px;
+    font-size: 30px;
+    padding: 0;
+    gap: 10px;
+}
+.Ecommerce-footer img{
+    max-height: 20px;
+    margin-bottom: -10px;
+}

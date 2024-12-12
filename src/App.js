@@ -10,14 +10,14 @@ import Register from './platform/Register';
 import PasswordReset from './platform/PasswordReset';
 import Passwordemailsent from './platform/passwordemailsent';
 import Promocode from './platform/Promocode';
-
+import Ecommerce1 from './websites/E_commerce/Ecommerce1/Ecommerce1.jsx'
 function App() {
 
   return (
     <EditbleStateProvider>
       <Router>
         <Routes>
-          <Route path="/" element={<Platform />} />
+          <Route path="/" element={<Ecommerce1 />} />
           {websitesDB.map((website, inx) => (
             <Route path={`/${website.name}/*`} element={<website.component />} key={inx} />
           ))}
